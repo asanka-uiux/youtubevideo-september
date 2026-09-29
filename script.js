@@ -63,7 +63,7 @@
       id:"steering", cat:"Steering", name:"Death Grip steering group", brand:"Kryptonite steering kit, dual stabilizer with Fox 2.0",
       img:"images/meter-steering.jpg", score:12, tk:true,
       is:"A heavy duty steering kit and a dual stabilizer on two Fox 2.0s.",
-      why:"14in wheels put more leverage on the steering than the factory parts were built for.",
+      why:"A 14in wheel is more leverage than the factory parts were built for.",
       call:"All work. You can't see any of it once the wheels are on.",
       other:"On a stock width truck you can skip the stabilizer. The links still earn it."
     },

@@ -1507,3 +1507,8 @@ duplicate IDs, no dead in-page anchors, and every `target="_blank"` link has `re
   parts were built for." (it was "A 14in tire is more leverage…").
 - The parts list's Death Grip Steering Kit card gets the same fix: "14in wide wheels put more leverage on the steering
   than Ram planned for…" (it was "A 14in wide tire puts…").
+
+## 42. Round 35: steering copy wording
+
+- The meter's Steering "Why we chose it" copy now reads "A 14in wheel is more leverage than the factory parts were built
+  for." (replaces the round 34 wording).

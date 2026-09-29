@@ -1492,3 +1492,7 @@ duplicate IDs, no dead in-page anchors, and every `target="_blank"` link has `re
   narrower (round 30), so the vertically centred right arrow moves down about 14px.
 - **Desktop (1041px and up):** `.finbanner__lenders span` gets `padding-top:16px`, which lines "Payment partners"
   up with the bottom of the Affirm and Katapult wordmarks.
+
+## 39. Round 32: story byline date
+
+- `TK_DATE` in the build story byline is now `<time datetime="2026-09">September 2026</time>`.

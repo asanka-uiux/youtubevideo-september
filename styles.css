@@ -1,0 +1,547 @@
+/* ============================================================
+   CUSTOM OFFSETS . CAN YOU BUILD A SHOW TRUCK THAT CAN STILL TOW?
+   2026 Ram 3500 . Race Red standard on near black
+   Type: Bebas Neue / Oswald / Inter / Rajdhani
+
+   MOBILE FIRST. Everything above the DESKTOP banner is the phone
+   layout and applies at every width. The min-width blocks at the
+   bottom widen it one breakpoint at a time, smallest first, and
+   each block only holds what changes at that width. Non-width
+   overrides (short viewports, reduced motion) sit last.
+
+   Breakpoints (min-width): 521 / 561 / 601 / 621 / 641 / 761 /
+   821 / 901 / 961 / 1041
+   ============================================================ */
+:root{
+  --red:#CE1126; --red-hot:#FF2036; --red-deep:#8E0B19;
+  --ink:#0A0A0B; --panel:#111114; --panel-2:#17171C; --panel-3:#1E1E24;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.06);
+  --white:#FFF; --text:#E7E7EA; --muted:#9A9AA4; --dim:#999999; --green:#5FD08A;
+  --maxw:1240px; --wide:1520px; --r:4px; --navh:66px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh) + 16px)}
+body{background:var(--ink);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.sec{padding:72px 0;position:relative}
+
+/* type */
+/* phones get bigger display sizes and looser leading; the 621 block restores the fluid desktop scale */
+.display{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;line-height:.95;letter-spacing:.012em;text-transform:uppercase;color:var(--white)}
+h1.display{font-size:clamp(2.8rem,13vw,3.4rem)}
+h2.display{font-size:clamp(2.4rem,10.5vw,2.8rem)}
+.kicker{font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--red-hot);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.kicker::before{content:"";width:32px;height:2px;background:var(--red);flex:none}
+.kicker--c{justify-content:center}
+.kicker--p::before{display:none}
+.lede{font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--muted);max-width:68ch}
+.num{font-family:'Rajdhani',sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
+.label{font-family:'Oswald',sans-serif;font-weight:500;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.red{color:var(--red-hot)}
+.tk{font-family:'Rajdhani',sans-serif;font-weight:700;background:rgba(206,17,38,.16);color:#FF6B76;border:1px dashed rgba(255,32,54,.5);padding:0 7px;border-radius:3px;font-size:.86em;letter-spacing:.04em;white-space:nowrap;display:inline-block}
+
+/* buttons */
+.btn{font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;padding:15px 28px;border-radius:var(--r);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:all .2s}
+.btn--primary{background:var(--red);color:#fff}
+.btn--primary:hover{background:var(--red-hot);transform:translateY(-2px);box-shadow:0 10px 28px rgba(206,17,38,.3)}
+.btn--ghost{border:1px solid var(--line);color:var(--text)}
+.btn--ghost:hover{border-color:var(--red);color:#fff;background:rgba(206,17,38,.1)}
+.btn--wide{width:100%}
+
+/* ---------- nav ---------- */
+/* phones: brand + CTA only, links hidden. The 1041 block brings the links back. */
+.nav{position:fixed;top:0;left:0;right:0;z-index:95;height:var(--navh);background:rgba(10,10,11,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
+.nav__in{max-width:var(--maxw);margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:20px;width:auto}
+/* below 1041 the links live in a drawer that drops from the bar; the burger toggles .is-open on .nav */
+.nav__links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:6px 20px 14px;background:rgba(10,10,11,.97);border-bottom:1px solid var(--line);box-shadow:0 24px 40px rgba(0,0,0,.5)}
+.nav.is-open .nav__links{display:flex}
+.nav__links a{font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap;padding:14px 0;border-bottom:1px solid var(--line-2)}
+.nav__links a:hover,.nav__links a.on{color:var(--white)}
+.nav__cta{font-family:'Oswald',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--red);color:#fff;text-decoration:none;padding:10px 14px;border-radius:var(--r);white-space:nowrap;transition:background .2s;margin-left:auto}
+.nav__cta:hover{background:var(--red-hot)}
+.nav__burger{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-right:-8px;border-radius:var(--r);color:var(--text);transition:background .2s}
+.nav__burger:hover{background:rgba(255,255,255,.06)}
+.nav__burger svg{width:22px;height:22px;fill:currentColor}
+.nav__burger .ic-close,.nav.is-open .nav__burger .ic-menu{display:none}
+.nav.is-open .nav__burger .ic-close{display:block}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--red-hot);width:0}
+
+/* ---------- hero ---------- */
+/* copy is centred in the band; the band is the viewport height minus the nav, capped at 700px */
+.hero{position:relative;min-height:min(calc(100svh - var(--navh)),700px);display:flex;align-items:center;overflow:hidden;margin-top:var(--navh)}
+.hero__bg{position:absolute;inset:0;z-index:0}
+/* narrow boxes can't hold the whole rig, so favour the truck over the trailer;
+   the 561 and 1041 blocks ease back toward centre as the box widens */
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:57% 52%}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--ink) 2%,rgba(10,10,11,.72) 20%,rgba(10,10,11,.26) 46%,rgba(10,10,11,.18) 76%,rgba(10,10,11,.40) 100%),linear-gradient(to right,rgba(10,10,11,.80),rgba(10,10,11,.05) 56%)}
+/* phones: a dark band behind the copy so it reads over the photo; the 621 block removes it */
+.hero__in{position:relative;z-index:2;width:100%;padding:48px 0;background:linear-gradient(180deg,rgba(10,10,11,0) 0%,rgba(10,10,11,.7) 12%,rgba(10,10,11,.78) 88%,rgba(10,10,11,0) 100%)}
+.stamp{font-family:'Oswald',sans-serif;font-size:.64rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--text);margin-bottom:16px;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.stamp b{color:var(--red-hot);font-weight:600}
+h1.display{text-shadow:0 3px 28px rgba(0,0,0,.55)}
+h1.display .l2{display:block;color:var(--red-hot)}
+.hero__sub{margin-top:18px;max-width:58ch;font-size:1.04rem;line-height:1.7;color:#EDEDF1;text-shadow:0 1px 14px rgba(0,0,0,.8)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero__actions .btn{flex:1 1 100%}
+
+/* ---------- driveway ready + financing ---------- */
+.bnpl{background:var(--ink);border-top:1px solid var(--line-2)}
+.showcase{margin-top:32px}
+.showcase__main{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#000}
+.showcase__main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* financing banner, merged into the win section */
+.finbanner{
+  margin-top:32px;border-radius:10px;padding:32px 22px 30px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#8E0B19,#6E0812 58%,#590610);
+  border:1px solid rgba(255,255,255,.11);
+  animation:finglow 3.4s ease-in-out infinite;
+}
+@keyframes finglow{
+  0%,100%{box-shadow:0 0 0 0 rgba(206,17,38,.40),0 14px 44px rgba(0,0,0,.45)}
+  50%{box-shadow:0 0 46px 9px rgba(255,32,54,.34),0 14px 44px rgba(0,0,0,.45)}
+}
+.finbanner::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(620px 210px at 50% 0%,rgba(255,255,255,.09),transparent 70%)}
+.finbanner > *{position:relative;z-index:2}
+.finbanner__k{font-family:'Oswald',sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:#FFC8CD}
+.finbanner__t{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3.9vw,3rem);color:#fff;letter-spacing:.02em;line-height:1;margin:14px 0 12px}
+.finbanner__p{font-size:.97rem;color:#F1D2D6;max-width:62ch;margin:0 auto 26px}
+.finbanner__btn{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(.72rem,1.02vw,.85rem);letter-spacing:.13em;text-transform:uppercase;background:#fff;color:#0A0A0B;border-radius:6px;padding:15px 22px;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s,background .2s}
+.finbanner__btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.42);background:#F4F4F6}
+.finbanner__lenders{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-top:24px;opacity:.85}
+.finbanner__lenders img{height:22px;width:auto}
+.finbanner__lenders span{font-family:'Oswald',sans-serif;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#EEBEC3}
+
+/* financing modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.on{display:flex}
+.modal__scrim{position:absolute;inset:0;background:rgba(4,4,5,.82);backdrop-filter:blur(6px)}
+.modal__panel{position:relative;z-index:2;width:100%;max-width:940px;max-height:88vh;overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:30px 22px 26px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.modal__x{position:absolute;top:14px;right:14px;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:1.15rem;line-height:1;transition:all .2s}
+.modal__x:hover{color:#fff;border-color:var(--red);background:rgba(206,17,38,.14)}
+.modal__k{font-family:'Oswald',sans-serif;font-weight:600;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red-hot)}
+.modal__t{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3.3vw,2.6rem);color:var(--white);letter-spacing:.02em;line-height:1;margin:12px 0 10px}
+.modal__p{font-size:.94rem;color:var(--muted);max-width:70ch}
+.fin{display:grid;grid-template-columns:1fr;gap:18px;margin-top:26px}
+.fincard{border:1px solid var(--line);border-radius:var(--r);background:var(--panel-2);padding:26px;display:flex;flex-direction:column}
+.fincard__logo{height:36px;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.fincard__logo img{height:100%;width:auto}
+.fincard h4{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--white);letter-spacing:.03em;margin:0 0 10px;line-height:1.02}
+.fincard p{font-size:.89rem;color:var(--muted);margin-bottom:20px;flex:1}
+.pill{display:inline-block;font-family:'Oswald',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;background:rgba(206,17,38,.16);color:#FF6B76;padding:5px 11px;border-radius:99px;margin-bottom:12px}
+.finnote{margin-top:20px;font-size:.78rem;color:var(--dim)}
+
+/* ---------- parts ---------- */
+.parts{background:var(--ink)}
+.ptabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding-bottom:26px;border-bottom:1px solid var(--line-2)}
+.ptab{font-family:'Oswald',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r);color:var(--muted);transition:all .2s}
+.ptab:hover{color:#fff;border-color:var(--red)}
+.ptab[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+/* two cards per row up to 961, where it goes three. Phones use a tight gap and compact cards.
+   order:1 keeps the grid above the arrows inside .carousel on phones; the 821 block puts it
+   back between them. */
+.pgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-width:0;order:1}
+.pcard{min-width:0;border:1px solid var(--line);border-radius:var(--r);background:var(--panel-2);display:flex;flex-direction:column;overflow:hidden;transition:border-color .25s,transform .25s}
+.pcard:hover{border-color:rgba(206,17,38,.5);transform:translateY(-3px)}
+.pcard__img{aspect-ratio:4/3;background:#000;overflow:hidden;position:relative}
+.pcard__img img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s,transform .5s}
+/* White backdrop product shots: the card shows the whole part on a light plate
+   instead of cropping into it. Add pcard__img--product to a card's image div. */
+.pcard__img--product{background:#FFF}
+.pcard__img--product img{object-fit:contain;opacity:1;padding:8px}
+.pcard:hover .pcard__img--product img{transform:scale(1.03)}
+.pcard:hover .pcard__img img{opacity:1;transform:scale(1.04)}
+.pcard__flag{position:absolute;top:12px;left:12px;font-family:'Oswald',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:var(--red);color:#fff;padding:5px 10px;border-radius:var(--r)}
+/* compact card on phones so two fit side by side at 360px; the 621 block restores full size */
+.pcard__body{padding:12px;display:flex;flex-direction:column;flex:1}
+.pcard__brand{font-family:'Oswald',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red-hot);min-height:1.1em}
+.pcard__t{font-family:'Oswald',sans-serif;font-weight:600;font-size:.86rem;color:var(--white);line-height:1.3;margin:6px 0 7px}
+/* phones: four lines max so rows stay even; the 621 block shows the full text */
+.pcard__p{font-size:.76rem;color:var(--muted);line-height:1.5;flex:0 0 auto;max-height:6em;margin-bottom:auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden}
+.pcard__sku{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:.68rem;word-break:break-all;color:var(--dim);letter-spacing:.05em;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
+.pcard__price--top{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
+.pcard__price em{font-family:'Rajdhani',sans-serif;font-style:normal;font-weight:600;font-size:.42em;color:var(--dim);letter-spacing:.08em;margin-left:6px;text-transform:uppercase}
+.pcard__price{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;color:var(--white);letter-spacing:.02em;margin-top:10px;line-height:1}
+.pcard__ea{font-family:'Oswald',sans-serif;font-weight:500;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);vertical-align:middle;margin-left:3px}
+.pcard__acts{margin-top:16px;display:grid;gap:8px}
+.pcard__acts a{font-family:'Oswald',sans-serif;font-size:.56rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;text-align:center;padding:9px 4px;border-radius:var(--r);transition:all .2s}
+.pcard__acts .a1{background:var(--red);color:#fff}
+.pcard__acts .a1:hover{background:var(--red-hot)}
+.pcard__acts .a2{border:1px solid var(--line);color:var(--muted)}
+.pcard__acts .a2:hover{border-color:var(--red);color:#fff}
+/* carousel. Phones: the grid stacks with two small arrows on one row beneath it
+   (next is pulled up beside prev). The 821 block turns it into big arrows flanking
+   a two by three grid. */
+.wrap--wide{max-width:var(--wide);padding:0 16px}
+.carousel{display:grid;grid-template-columns:1fr;gap:0;align-items:center;margin-top:34px}
+.carousel__arrow{
+  height:52px;width:52px;border:1px solid var(--line);border-radius:6px;background:var(--panel-2);
+  color:var(--text);display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.carousel__arrow--prev{order:2;justify-self:start;margin-top:20px}
+.carousel__arrow--next{order:3;justify-self:end;margin-top:-52px}
+.carousel__arrow:hover:not(:disabled){border-color:var(--red);background:var(--red);color:#fff;transform:translateY(-2px);box-shadow:0 10px 26px rgba(206,17,38,.28)}
+.carousel__arrow:disabled{opacity:.22;cursor:default}
+.carousel__arrow[hidden]{display:none}
+.carousel__arrow.is-off{visibility:hidden}
+.carousel__arrow{transition-property:border-color,background,color,transform,box-shadow,opacity}
+.carousel__arrow svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pager{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:24px}
+.pager[hidden]{display:none}
+.pager__info{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.pager__info b{color:var(--white)}
+.pager__dots{display:flex;gap:9px}
+.pager__dots button{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16);transition:background .2s,transform .2s}
+.pager__dots button[aria-current="true"]{background:var(--red-hot);transform:scale(1.3)}
+.pager__dots button:hover{background:var(--muted)}
+.shopall{margin-top:38px}
+
+/* ---------- video ---------- */
+.video{background:var(--panel);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+/* phones: edge to edge and a touch taller than 16:9; the 621 block boxes it again */
+.vidbox{position:relative;aspect-ratio:4/3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;margin:34px -28px 0;background:#000}
+.vidbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vidbox__ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;text-align:center;padding:18px}
+.vidbox__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+.vidbox__ph > *{position:relative;z-index:2}
+.vidbox__ph > .playmark{position:absolute}
+/* phones: the play mark is pinned to the exact centre of the box, caption sits at the bottom */
+.playmark{left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.playmark::after{content:"";width:0;height:0;border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+
+/* ---------- story ---------- */
+.byline{font-family:'Oswald',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:16px}
+.prose{max-width:74ch;margin-top:36px}
+.prose h3{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;color:var(--white);letter-spacing:.04em;margin:38px 0 12px;line-height:1.1}
+.prose h3:first-child{margin-top:0}
+.prose p{margin-bottom:16px;color:var(--muted)}
+.prose p strong{color:var(--text);font-weight:600}
+.prose a{color:var(--red-hot);text-decoration:none;border-bottom:1px solid rgba(255,32,54,.4)}
+.prose a:hover{color:#fff;border-color:#fff}
+
+/* ---------- faq ---------- */
+.faqsec{background:var(--panel);border-top:1px solid var(--line-2)}
+.faq{margin-top:40px;border-top:1px solid var(--line-2)}
+.q{border-bottom:1px solid var(--line-2)}
+.q__btn{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;text-align:left;padding:22px 0}
+.q__t{font-family:'Oswald',sans-serif;font-weight:500;font-size:1.04rem;color:var(--white);line-height:1.4}
+.q__ic{flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;position:relative;margin-top:2px;transition:background .2s,border-color .2s}
+.q__ic::before,.q__ic::after{content:"";position:absolute;left:50%;top:50%;background:var(--muted);transform:translate(-50%,-50%);transition:transform .28s ease,background .2s}
+.q__ic::before{width:11px;height:1.5px}
+.q__ic::after{width:1.5px;height:11px}
+.q__btn[aria-expanded="true"] .q__ic{background:var(--red);border-color:var(--red)}
+.q__btn[aria-expanded="true"] .q__ic::before,.q__btn[aria-expanded="true"] .q__ic::after{background:#fff}
+.q__btn[aria-expanded="true"] .q__ic::after{transform:translate(-50%,-50%) rotate(90deg)}
+.q__body{overflow:hidden;max-height:0;transition:max-height .38s cubic-bezier(.2,.7,.3,1)}
+.q__body p{padding:0 0 24px;max-width:74ch;color:var(--muted);font-size:.95rem}
+
+/* ---------- blogs ---------- */
+.blogs{background:var(--ink);border-top:1px solid var(--line-2)}
+/* phones: one horizontal snap row bleeding to the screen edge; 621 stacks, 901 goes three across */
+.bgrid{display:flex;grid-template-columns:1fr;gap:14px;margin:38px -28px 0;padding:4px 28px 8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 28px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.bgrid::-webkit-scrollbar{display:none}
+.bgrid > .bcard{flex:0 0 82%;scroll-snap-align:start}
+.blogs__more{margin-top:30px}
+.blogs__more .btn{width:100%}
+.bcard{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel-2);text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.bcard:hover{border-color:rgba(206,17,38,.5);transform:translateY(-3px)}
+/* 16:9 to match the site's blog thumbnails (video frames), so nothing gets cropped */
+.bcard__img{aspect-ratio:16/9;background:#000;overflow:hidden}
+.bcard__img img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .3s,transform .5s}
+.bcard:hover .bcard__img img{opacity:1;transform:scale(1.04)}
+.bcard__body{padding:20px}
+.bcard__cat{font-family:'Oswald',sans-serif;font-size:.61rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red-hot)}
+.bcard__t{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.05rem;color:var(--white);line-height:1.35;margin:9px 0 11px}
+.bcard__m{font-size:.78rem;color:var(--dim)}
+
+/* ---------- stats ---------- */
+/* two by two on phones with a rule between the rows; the 821 block goes four across */
+.stats{background:var(--panel);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.stats__in{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr}
+.st{padding:22px 0 22px 22px;border-left:1px solid var(--line-2)}
+.st:first-child{border-left:0;padding-left:0}
+.st:nth-child(3){border-left:0;padding-left:0}
+.st:nth-child(n+3){border-top:1px solid var(--line-2)}
+.st__v{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--white);line-height:1;letter-spacing:.02em}
+.st__v a{text-decoration:none;color:inherit}
+.st__v a:hover{color:var(--red-hot)}
+.st__k{margin-top:8px}
+
+/* ---------- next step ---------- */
+.next{position:relative;overflow:hidden;text-align:center;background:var(--ink);padding-bottom:0}
+.next::before{content:"";position:absolute;inset:0;background:radial-gradient(760px 300px at 50% 0%,rgba(206,17,38,.18),transparent 70%)}
+.next__in{position:relative;z-index:2}
+.next .lede{margin:20px auto 0}
+.trust{margin-top:38px;font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);letter-spacing:.06em}
+/* each phrase stays whole when the line wraps on phones */
+.trust b,.trust span{display:inline-block;font-weight:400}
+.trust span{color:var(--red-hot)}
+.next__row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.next__row .btn{flex:1 1 100%}
+/* shop photo behind the build story, held well back so the prose still leads */
+#story{overflow:hidden}
+.story__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.story__bg img{position:absolute;top:0;left:50%;transform:translateX(-50%);width:140%;height:auto;opacity:.38;display:block;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.45) 72%,transparent 96%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.45) 72%,transparent 96%)}
+.story__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(10,10,11,.66) 14%,rgba(10,10,11,.70) 86%,var(--ink) 100%),linear-gradient(90deg,rgba(10,10,11,.55),rgba(10,10,11,.10) 62%)}
+#story .wrap{position:relative;z-index:2}
+/* full bleed closing shot, sits between the CTA and the footer.
+   Narrow screens get a fixed taller band that crops in so the truck still reads;
+   the 641 block switches to the fluid height. */
+.closer{position:relative;z-index:2;margin-top:clamp(46px,6vw,92px);height:330px}
+.closer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.closer::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,var(--ink) 0%,rgba(10,10,11,.58) 20%,rgba(10,10,11,0) 52%,rgba(10,10,11,0) 66%,rgba(17,17,20,.94) 100%)}
+
+/* ---------- footer ---------- */
+/* brand block, four link columns and the legal strip. Phones stack them, 761 puts the
+   columns four across, 1041 puts the brand block beside the columns. */
+/* phones: everything centred; the 621 block left-aligns it again */
+.foot{border-top:1px solid var(--line-2);padding:56px 0 28px;background:var(--panel);text-align:center}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--red-hot)}
+.foot__top{display:grid;grid-template-columns:1fr;gap:40px}
+.foot__brand img{height:22px;width:auto;margin:0 auto}
+.foot__tag{margin:18px auto 0;font-size:.92rem;color:var(--muted);max-width:38ch}
+.foot__phone{display:inline-block;margin-top:16px;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1;color:var(--white)}
+.foot__social{display:flex;gap:10px;margin-top:20px;justify-content:center}
+.foot__social a{width:42px;height:42px;border:1px solid var(--line);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s}
+.foot__social a:hover{color:#fff;border-color:var(--red);background:rgba(206,17,38,.12)}
+.foot__social svg{width:18px;height:18px;fill:currentColor}
+.foot__cols{display:grid;grid-template-columns:1fr 1fr;gap:30px 20px}
+.foot__col h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+.foot__col ul{list-style:none}
+.foot__col li+li{margin-top:9px}
+.foot__col a{font-size:.9rem;color:var(--muted);transition:color .2s}
+.foot__col a:hover{color:var(--white)}
+.foot__legal{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-2);display:flex;flex-direction:column;gap:14px}
+.foot small{color:var(--dim);font-size:.79rem;max-width:78ch;display:block;margin:0 auto}
+.foot__links{display:flex;flex-wrap:wrap;gap:8px 18px;flex:none;justify-content:center}
+.foot__links a{font-family:'Oswald',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   SHOW OR WORK . the meter
+   Every part on this truck gets rated on one axis: how much of
+   it is work, how much of it is show. The meter holds the part
+   you are looking at. The diamond on the arc holds the running
+   average, which is where the build actually landed.
+   ============================================================ */
+.meter{background:var(--panel);position:relative;overflow:hidden}
+.meter::before{content:"";position:absolute;top:0;left:0;right:0;height:380px;background:radial-gradient(1000px 380px at 26% 0%,rgba(206,17,38,.13),transparent 70%);pointer-events:none}
+.meter > *{position:relative;z-index:2}
+.mbox{margin-top:36px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel-2);padding:18px 16px 20px}
+.gauge{position:relative;max-width:1020px;margin:0 auto}
+.gauge__bar{width:100%;height:auto}
+.gauge__ptr{position:absolute;top:36.9%;left:50%;width:6.4%;height:auto;transform:translate(-50%,-50%);transition:left .55s cubic-bezier(.2,.7,.3,1);filter:drop-shadow(0 7px 16px rgba(0,0,0,.65))}
+.gauge__avg{position:absolute;top:22.5%;height:29%;width:7px;margin-left:-3.5px;left:50%;border-radius:4px;background:linear-gradient(180deg,#B6FBD1,var(--green) 45%,#34A868);box-shadow:0 0 0 2px rgba(10,10,11,.55),0 0 22px 6px rgba(95,208,138,.75),0 0 44px 14px rgba(95,208,138,.3);transition:left .55s cubic-bezier(.2,.7,.3,1)}
+.gauge__avg::after{content:"";position:absolute;left:50%;top:-11px;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid var(--green);filter:drop-shadow(0 0 8px rgba(95,208,138,.9))}
+.rail{position:relative;max-width:1020px;margin:-4px auto 0;height:40px}
+.rail__avg{position:absolute;top:0;left:50%;transform:translateX(-50%);transition:left .55s cubic-bezier(.2,.7,.3,1);display:flex;flex-direction:column;align-items:center;gap:4px;white-space:nowrap}
+.rail__avg i{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:11px solid var(--green);filter:drop-shadow(0 0 7px rgba(95,208,138,.75))}
+.rail__avg span{font-family:'Oswald',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:#0A0A0B;background:var(--green);padding:5px 11px;border-radius:99px;box-shadow:0 0 18px rgba(95,208,138,.4)}
+.landed{margin-top:12px;padding-top:16px;border-top:1px solid var(--line-2);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.landed__l{max-width:52ch}
+.landed__v{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--white);line-height:1;letter-spacing:.02em}
+.landed__v span{color:var(--red-hot)}
+.landed__p{font-size:.82rem;color:var(--dim);margin-top:5px}
+.legend{font-family:'Oswald',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.legend span{font-size:.8rem;line-height:1}
+
+/* phones: one swipeable row inside the box; 621 wraps them */
+.picks{display:flex;flex-wrap:nowrap;gap:8px;margin:20px -16px 0;padding:0 16px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.picks::-webkit-scrollbar{display:none}
+.pk{font-family:'Oswald',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;transition:all .2s;flex:none;white-space:nowrap;scroll-snap-align:start;display:inline-flex;align-items:center;gap:9px}
+.pk:hover{color:#fff;border-color:var(--red)}
+.pk[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.pk i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.55;flex:none}
+
+/* detail card stacks on phones with a 16:9 photo; the 901 block puts photo and copy side by side */
+.detail{margin-top:22px;padding-top:22px;border-top:1px solid var(--line-2);display:grid;grid-template-columns:1fr;gap:24px;align-items:stretch}
+.detail__vis{position:relative;height:100%;min-height:0;aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--line);border-radius:var(--r)}
+.detail__vis img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.detail__badge{position:absolute;top:14px;left:14px;font-family:'Oswald',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:var(--red);color:#fff;padding:6px 12px;border-radius:var(--r)}
+.detail__body{display:flex;flex-direction:column}
+.detail__k{font-family:'Oswald',sans-serif;font-weight:600;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red-hot)}
+.detail__name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);color:var(--white);letter-spacing:.02em;line-height:1;margin-top:9px}
+.detail__brand{font-family:'Oswald',sans-serif;font-weight:500;font-size:.9rem;color:var(--muted);margin-top:8px}
+.lean{align-self:flex-start;margin-top:16px;padding:15px 20px 14px;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:var(--r);background:rgba(206,17,38,.07);min-width:min(100%,360px)}
+.lean__scale{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.lean__scale span{height:7px;border-radius:2px;background:rgba(255,255,255,.1);transition:background .35s,box-shadow .35s}
+.lean__scale span.on{background:linear-gradient(90deg,var(--red-deep),var(--red-hot));box-shadow:0 0 14px rgba(255,32,54,.5)}
+.lean__scale span.on--mid{background:linear-gradient(90deg,#43B673,var(--green));box-shadow:0 0 14px rgba(95,208,138,.45)}
+.lean__r{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-top:11px;flex-wrap:wrap}
+.lean__v{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);letter-spacing:.045em;line-height:1}
+.lean__k{display:flex;align-items:center;gap:9px;flex:none}
+.lean__k b{font-family:'Oswald',sans-serif;font-weight:500;font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--dim)}
+.lean__k i{width:26px;height:1px;background:var(--line);display:block}
+.rows{margin-top:18px}
+.row{padding:13px 0;border-top:1px solid var(--line-2)}
+.row:first-child{border-top:0;padding-top:4px}
+.row__k{font-family:'Oswald',sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.row__v{font-size:.92rem;color:var(--text);margin-top:5px;line-height:1.55}
+.row--alt .row__v{color:var(--muted)}
+.detail__cta{margin-top:20px}
+
+/* ============================================================
+   DESKTOP . widen one breakpoint at a time
+   Smallest first. Each block only carries what changes at that
+   width, so a rule not listed here keeps its phone value all the
+   way up.
+   ============================================================ */
+
+/* 521px and up: bigger brand mark */
+@media(min-width:521px){
+  .brand img{height:26px}
+}
+
+/* 561px and up: hero crop eases back toward the trailer, CTAs sit side by side */
+@media(min-width:561px){
+  .hero__bg img{object-position:62% 52%}
+  .hero__actions .btn,.next__row .btn{flex:0 0 auto}
+}
+
+/* 601px and up: financing banner and meter box get their full padding, lenders on one row */
+@media(min-width:601px){
+  .finbanner{padding:44px 40px 38px}
+  .finbanner__btn{padding:17px 34px}
+  .finbanner__lenders{flex-wrap:nowrap;gap:20px}
+  .mbox{padding:26px}
+}
+
+/* 621px and up: end of the phone layout. Fluid display type, hero scrim off, meter picks wrap,
+   parts cards back to full size, video boxed at 16:9, blogs stacked, footer left-aligned. */
+@media(min-width:621px){
+  .display{line-height:.87}
+  h1.display{font-size:clamp(2.4rem,5.6vw,5rem)}
+  h2.display{font-size:clamp(2.1rem,4.4vw,3.6rem)}
+  .hero__in{background:none}
+  .hero__sub{font-size:.97rem;line-height:1.65;color:#C9C9D1}
+  .picks{flex-wrap:wrap;margin:20px 0 0;padding:0;overflow:visible}
+  .ptab{padding:11px 18px}
+  .wrap--wide{padding:0 34px}
+  .pgrid{gap:22px}
+  .pcard__img--product img{padding:14px}
+  .pcard__body{padding:20px}
+  .pcard__brand{font-size:.63rem}
+  .pcard__t{font-size:1rem;line-height:1.35;margin:7px 0 9px}
+  .pcard__p{font-size:.86rem;line-height:1.58;flex:1;max-height:none;margin-bottom:0;display:block;-webkit-line-clamp:unset;line-clamp:none;overflow:visible}
+  .pcard__sku{font-size:.8rem;word-break:normal}
+  .pcard__price{font-size:1.85rem}
+  .pcard__acts a{font-size:.66rem;letter-spacing:.14em;padding:11px 8px}
+  .vidbox{aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--r);margin:34px 0 0}
+  .vidbox__ph{justify-content:center;gap:16px;padding:20px}
+  .vidbox__ph > .playmark{position:relative}
+  .playmark{left:auto;top:auto;transform:none;width:78px;height:78px;box-shadow:none}
+  .playmark::after{border-left-width:24px;border-top-width:15px;border-bottom-width:15px}
+  .bgrid{display:grid;gap:22px;margin:38px 0 0;padding:0;overflow:visible;scroll-snap-type:none}
+  .bgrid > .bcard{flex:none}
+  .blogs__more .btn{width:auto}
+  .foot{text-align:left}
+  .foot__brand img{margin:0}
+  .foot__tag{margin:18px 0 0}
+  .foot__social,.foot__links{justify-content:flex-start}
+  .foot small{margin:0}
+}
+
+/* 641px and up: closing shot goes to the fluid height */
+@media(min-width:641px){
+  .closer{height:clamp(250px,26vw,620px)}
+}
+
+/* 761px and up: full section rhythm, roomier nav bar, financing modal two columns, footer columns four across */
+@media(min-width:761px){
+  .sec{padding:96px 0}
+  .nav__in{padding:0 28px;gap:24px}
+  .nav__cta{font-size:.7rem;letter-spacing:.15em;padding:11px 19px}
+  .fin{grid-template-columns:1fr 1fr}
+  .modal__panel{padding:38px 38px 32px}
+  .foot__cols{grid-template-columns:repeat(4,1fr)}
+  .foot__legal{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:24px}
+}
+
+/* 821px and up: big arrows flank the parts grid, stats go four across */
+@media(min-width:821px){
+  .carousel{grid-template-columns:64px 1fr 64px;gap:20px}
+  .carousel__arrow{height:96px;width:auto}
+  .carousel__arrow[hidden]{visibility:hidden;display:flex}
+  .carousel__arrow--prev,.carousel__arrow--next{order:0;justify-self:auto;margin-top:0}
+  .pgrid{order:0}
+  .stats__in{grid-template-columns:repeat(4,1fr)}
+  .st{padding:34px 0 34px 30px}
+  .st:nth-child(3){border-left:1px solid var(--line-2);padding-left:30px}
+  .st:nth-child(n+3){border-top:0}
+}
+
+/* 901px and up: blogs three across, meter detail side by side */
+@media(min-width:901px){
+  .bgrid{grid-template-columns:repeat(3,1fr)}
+  .detail{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}
+  .detail__vis{min-height:340px;aspect-ratio:auto}
+}
+
+/* 961px and up: parts grid goes three wide */
+@media(min-width:961px){
+  .pgrid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* 1041px and up: links back in the bar, burger gone, hero re-centred on the whole rig, footer brand beside the columns */
+@media(min-width:1041px){
+  .nav__links{display:flex;position:static;flex-direction:row;gap:20px;padding:0;background:none;border-bottom:0;box-shadow:none;margin-left:auto}
+  .nav__links a{font-size:.69rem;padding:0;border-bottom:0}
+  .nav__cta{margin-left:0}
+  .nav__burger{display:none}
+  .hero__bg img{object-position:50% 52%}
+  /* desktop hero fills the screen: starts under the fixed nav, padded so the copy centres in the visible area */
+  .hero{min-height:100vh;margin-top:0;padding-top:var(--navh);box-sizing:border-box}
+  .foot{padding:64px 0 32px}
+  .foot__top{grid-template-columns:minmax(0,1.1fr) minmax(0,2.5fr);gap:56px}
+}
+
+/* ============================================================
+   NOT WIDTH RELATED . short viewports and reduced motion
+   ============================================================ */
+
+/* short landscape screens: tighten the hero so the CTAs stay above the fold */
+@media(max-height:760px){
+  .hero__in{padding:36px 0}
+  .hero__sub{font-size:.9rem;margin-top:14px}
+  .hero__actions{margin-top:18px}
+  .btn{padding:13px 24px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  .finbanner{animation:none;box-shadow:0 0 30px 4px rgba(255,32,54,.22),0 14px 44px rgba(0,0,0,.45)}
+}
+
+/* Partner logos: both SVGs are framed so the wordmarks share a baseline and x-height at the same box height,
+   so one height per context keeps them in line (Affirm's arc fills the top, Katapult's "p" tail the bottom) */
+.finbanner__lenders{align-items:center}
+.finbanner__lenders img{height:34px}
+.fincard__logo{height:44px}
+/* phones: label gets its own line so the two logos always sit side by side */
+@media(max-width:620px){.finbanner__lenders span{flex-basis:100%;text-align:center}}
+
+/* Footer: legal strip only (brand, phone, social and link columns hidden on every width).
+   Undo: delete this block. The .foot__top markup is still in index.html. */
+.foot__top{display:none}
+.foot{padding:28px 0}
+.foot__legal{margin-top:0;padding-top:0;border-top:0}
+.foot__legal a[href^="tel:"]{white-space:nowrap}
+/* legal strip centred on every width: copy block and links stacked, centred on the screen */
+.foot,.foot small{text-align:center}
+.foot__legal{flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.foot small{margin:0 auto}
+.foot__links{justify-content:center}

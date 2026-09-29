@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can You Build a Show Truck That Can Still Tow? | 2026 Ram 3500 | Custom Offsets</title>
+<meta name="description" content="A 2026 Ram 3500 built to hold its own at a show and still tow the trailer home. Every part gets metered as a show mod, a work mod, or both, and the meter keeps score.">
+<meta property="og:title" content="Can You Build a Show Truck That Can Still Tow? | 2026 Ram 3500">
+<meta property="og:description" content="Every part on this Ram 3500 gets called a show mod or a work mod. Watch the meter and see where the build landed.">
+<meta property="og:image" content="images/og-share.jpg">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top"><img src="images/logo.png" alt="Custom Offsets"></a>
+    <div class="nav__links" id="navLinks">
+      <a href="#meter">Show or Work</a>
+      <a href="#bnpl">Buy Now, Pay Later</a>
+      <a href="#parts">Parts</a>
+      <a href="#watch">Watch</a>
+      <a href="#story">Story</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav__cta" href="#parts">Shop the Build</a>
+    <button class="nav__burger" type="button" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <svg class="ic-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g transform="translate(-3.0 -3.0) scale(0.416667)"><path d="M56 48c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 48 54.798 48 56 48zM56 32c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 32 54.798 32 56 32zM56 16c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 16 54.798 16 56 16z"/></g></svg>
+      <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g transform="translate(-1.333 -1.3331) scale(0.208329)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.2697 16.2773L111.999 112.001" stroke="currentColor" stroke-width="15" stroke-linecap="round"/><path d="M16 111.723L111.729 15.9991" stroke="currentColor" stroke-width="15" stroke-linecap="round"/></g></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="hero__bg"><img src="images/hero-ram.jpg" alt="The 2026 Ram 3500 build towing a loaded gooseneck trailer"></div>
+  <div class="hero__in">
+    <div class="wrap">
+      <div class="stamp">Build Feature <b>.</b> 2026 Ram 3500</div>
+      <h1 class="display">Can you build<br>a show truck<span class="l2">that can still tow?</span></h1>
+      <p class="hero__sub">
+        You bought a heavy duty truck to do heavy duty work. Then you look at it for a while and it's just kind
+        of boring. So we're building one that holds its own at any show and can still tow your trailer home.
+        Every part that goes on gets metered as a show mod, a work mod, or both. Each one pushes the slider,
+        and at the end we find out where the build landed.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#meter">See where it landed</a>
+        <a class="btn btn--ghost" href="#parts">Every part on it</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== SHOW OR WORK METER ===================== -->
+<section class="sec meter" id="meter">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">Every part gets metered</div>
+      <h2 class="display">Show mod,<br><span class="red">or Work mod?</span></h2>
+      <p class="lede" style="margin-top:20px">
+        Every part on this truck gets a call. Some of it helps on a job site. Some of it only matters in a
+        parking lot. Most of it does a bit of both. Pick a part and the pointer shows where it sits. The green
+        marker is the running average, and that's the whole point: we're trying to land right in the middle.
+        Not boring, still capable.
+      </p>
+    </div>
+
+    <div class="mbox rv">
+      <div class="gauge">
+        <img class="gauge__bar" src="images/gauge-bar.png" alt="Meter running from show truck on the left to work truck on the right">
+        <img class="gauge__ptr" id="gPtr" src="images/gauge-pointer.png" alt="" aria-hidden="true">
+        <div class="gauge__avg" id="gAvgLine" aria-hidden="true"></div>
+      </div>
+      <div class="rail">
+        <div class="rail__avg" id="gAvg"><i aria-hidden="true"></i><span>Where the build landed</span></div>
+      </div>
+
+      <div class="landed">
+        <div class="landed__l">
+          <div class="landed__v" id="avgHead">The build landed <span>dead center</span>.</div>
+          <div class="landed__p" id="avgWord">Averaged across every part on the truck.</div>
+        </div>
+      </div>
+
+      <div class="picks" role="tablist" aria-label="Parts on this build" id="picks"></div>
+
+      <div class="detail" id="detail">
+        <div class="detail__vis">
+          <span class="detail__badge" data-role="badge"></span>
+          <img src="images/meter-wheels.jpg" alt="American Force 26x14" data-role="img">
+        </div>
+        <div class="detail__body">
+          <div class="detail__k" data-role="cat"></div>
+          <div class="detail__name" data-role="name"></div>
+          <div class="detail__brand" data-role="brand"></div>
+
+          <div class="lean">
+            <div class="lean__scale" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="lean__r">
+              <div class="lean__v" data-role="verdict"></div>
+              <div class="lean__k"><b>Show side</b><i></i><b>Work side</b></div>
+            </div>
+          </div>
+
+          <div class="rows">
+            <div class="row"><div class="row__k">What it is</div><div class="row__v" data-role="is"></div></div>
+            <div class="row"><div class="row__k">Why we chose it</div><div class="row__v" data-role="why"></div></div>
+            <div class="row"><div class="row__k">Show or work</div><div class="row__v" data-role="call"></div></div>
+            <div class="row row--alt"><div class="row__k">The other direction</div><div class="row__v" data-role="other"></div></div>
+          </div>
+
+          <div class="detail__cta">
+            <a class="btn btn--primary btn--wide" data-role="cta" href="#parts">See it in the parts list</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BUY NOW PAY LATER ===================== -->
+<section class="sec bnpl" id="bnpl" style="padding-top:0">
+  <div class="wrap">
+    <div class="finbanner rv">
+      <div class="finbanner__k">Buy now, pay later</div>
+      <div class="finbanner__t">Build now. Pay over time.</div>
+      <p class="finbanner__p">
+        Two ways to spread out the build: finance through Affirm as low as 0% APR, or lease-to-own through
+        Katapult with as low as $1 down and no credit required. Checking your eligibility takes about a minute
+        and won't affect your credit score.
+      </p>
+      <button class="finbanner__btn" type="button" id="finOpen">Get pre-qualified &amp; start your build today</button>
+      <div class="finbanner__lenders">
+        <span>Payment partners</span>
+        <img src="images/affirm-logo.svg" alt="Affirm">
+        <img src="images/katapult-logo.svg" alt="Katapult">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINANCING MODAL ===================== -->
+<div class="modal" id="finModal" role="dialog" aria-modal="true" aria-labelledby="finModalTitle">
+  <div class="modal__scrim" data-close></div>
+  <div class="modal__panel">
+    <button class="modal__x" type="button" data-close aria-label="Close financing options">&#10005;</button>
+    <div class="modal__k">Buy now, pay later</div>
+    <div class="modal__t" id="finModalTitle">Two ways to pay over time.</div>
+    <p class="modal__p">
+      Check your eligibility with no impact to your credit score. You'll get a decision in seconds and see
+      your exact terms before you commit. Pick the one that fits and start ordering parts.
+    </p>
+    <div class="fin">
+      <div class="fincard">
+        <div class="fincard__logo"><img src="images/affirm-logo.svg" alt="Affirm"></div>
+        <span class="pill">As low as 0% APR</span>
+        <h3>Build. Pay monthly.</h3>
+        <p>
+          Finance the whole build through Custom Offsets: wheels, tires, lighting, steering, and accessories
+          on one approval. As low as 0% APR for qualified buyers, with predictable monthly payments and
+          no late fees or hidden fees.
+        </p>
+        <a class="btn btn--primary" href="https://www.customwheeloffset.com/" target="_blank" rel="noopener">Pre-qualify with Affirm</a>
+      </div>
+      <div class="fincard">
+        <div class="fincard__logo"><img src="images/katapult-logo.svg" alt="Katapult"></div>
+        <span class="pill">As low as $1 down</span>
+        <h3>No credit required.</h3>
+        <p>
+          Katapult's lease-to-own option gets the parts on your truck for as low as $1 down, with a decision
+          in seconds and no credit required. It's built for buyers who are still establishing or rebuilding credit.
+        </p>
+        <a class="btn btn--ghost" href="https://www.customwheeloffset.com/" target="_blank" rel="noopener">Pre-qualify with Katapult</a>
+      </div>
+    </div>
+    <p class="finnote">Your rate will be 0% APR or 10 to 36% APR based on credit, and is subject to an eligibility check. Payment options through Affirm are provided by these lending partners: <a href="https://www.affirm.com/lenders" target="_blank" rel="noopener">affirm.com/lenders</a>. Options depend on your purchase amount, and a down payment may be required. Katapult is a lease-to-own program with its own terms, not a loan. Learn more about payment options at Custom Offsets.</p>
+  </div>
+</div>
+
+<!-- ===================== PARTS ===================== -->
+<!-- PRODUCT IMAGES: every .pcard__img <img> below points at a local placeholder in images/.
+     Swap each src for the real product photo when the shoot lands. Nothing else needs to change. -->
+<section class="sec parts" id="parts">
+  <div class="wrap wrap--wide">
+    <div class="rv">
+      <div class="kicker">The direct specs</div>
+      <h2 class="display">Full parts list.</h2>
+      <p class="lede" style="margin-top:20px">
+        Everything that went on the 2026 Ram 3500, grouped the way it went on the truck. Filter by category
+        to see one group at a time.
+      </p>
+      <div class="ptabs" role="tablist" aria-label="Parts categories">
+        <button class="ptab" role="tab" aria-selected="true" data-cat="all">All Parts</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="wt">Wheels &amp; Tires</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="lift">Lift Kit</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="brake">Brakes</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="drive">Drivetrain</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="light">Lighting</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="steer">Steering</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="exh">Exhaust</button>
+        <button class="ptab" role="tab" aria-selected="false" data-cat="bed">Bed</button>
+      </div>
+    </div>
+
+    <div class="carousel rv">
+      <button class="carousel__arrow carousel__arrow--prev" type="button" id="pgPrev" aria-label="Previous parts"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+    <div class="pgrid" id="pgrid">
+      <article class="pcard rv" data-cat="wheel">
+        <div class="pcard__img pcard__img--product"><img src="images/part-wheels.jpg" alt="American Force 26x14 wheels"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">American Force</div>
+          <div class="pcard__t">26x14 Wheels</div>
+          <p class="pcard__p">Fourteen inches wide on a 26in wheel. Nothing on this build changes the look of the truck more.</p>
+          <div class="pcard__sku">SKU CKH30-2614-8x650-SF</div>
+          <div class="pcard__price num">$2,433.00<em>each</em></div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/buy-wheel-offset/CKH30-2614-8x650-SF/american-force-vantage-cc-26x14-90?vehicle_type=Truck&amp;year=2026&amp;make=Ram&amp;model=3500&amp;trim=Laramie&amp;drive=4WD&amp;modification=Minor+Plastic+Trimming&amp;rubbing=No+rubbing+or+scrubbing&amp;suspension=Stock&amp;fitment_type=extreme&amp;insideFitment=true&amp;fitment-selection=all&amp;DRChassisID=8976" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/wheels" target="_blank" rel="noopener">Shop Wheels</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="tire">
+        <div class="pcard__img pcard__img--product"><img src="images/part-tires.jpg" alt="Fury Offroad Country Hunter MT II 35x14.50R26LT"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Fury Offroad</div>
+          <div class="pcard__t">Country Hunter MT II, 35x14.50R26LT</div>
+          <p class="pcard__p">A 35in mud terrain in a 14.50 section width to match the wheel, rated Load Range F with a 121 load index. That rating matters, because a tire this wide is easy to buy in a rating that can't carry what a 3500 is built to pull.</p>
+          <div class="pcard__sku">SKU FCHIIF35145026</div>
+          <div class="pcard__price num">$623.51<em>each</em></div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/buy-wheel-offset2/FCHIIF35145026/fury-offroad-country-hunter-mtii-35x1450r26lt-tires?year=2026&amp;make=Ram&amp;model=3500&amp;trim=Limited&amp;drive=4WD&amp;cab=Crew+Cab+Pickup&amp;package=Single+Rear+Wheel" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/tires" target="_blank" rel="noopener">Shop Tires</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="lift">
+        <div class="pcard__img pcard__img--product"><img src="images/part-liftkit.jpg" alt="BDS Suspension 4in lift kit with radius arms"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">BDS Suspension</div>
+          <div class="pcard__t">4-inch Lift Kit</div>
+          <p class="pcard__p">A 4in lift with radius arms and dual rate coil springs. It's just big enough to make the 26x14s fit, and it keeps the truck comfortable to drive every day.</p>
+          <div class="pcard__sku">SKU BDS1656H</div>
+          <div class="pcard__price num">$2,097.67</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/suspension/145625/bds-suspension-4-lift-kit-w-radius-arm-w-o-factory-rear-overload-leaf-6-bolt-index-ring-nx2-nitro-series-shocks-19-23-ram-3500-4wd-diesel" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/suspension/lift-kits" target="_blank" rel="noopener">Shop Lift Kits</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="brake">
+        <div class="pcard__img pcard__img--product"><img src="images/part-rotors.jpg" alt="R1 Concepts black drilled and slotted rotor set"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">R1 Concepts</div>
+          <div class="pcard__t">Black Performance Drilled &amp; Slotted Rotor Set</div>
+          <p class="pcard__p">Drilled and slotted rotors in a black finish for the 2026 Ram 3500. The slots and drilling help the pads shed heat, which matters now that the tires got heavier and the trailer didn't get lighter. The black finish keeps the rotor from looking rusty behind an open spoke wheel.</p>
+          <div class="pcard__sku">SKU WHPN2-40136</div>
+          <div class="pcard__price num">$988.00</div>
+          <div class="pcard__acts">
+            <a class="a2" href="https://www.customwheeloffset.com/store/performance/brakes" target="_blank" rel="noopener">Shop Brakes</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="drive">
+        <div class="pcard__img pcard__img--product"><img src="images/part-diffcover.jpg" alt="Banks Power RAM Air differential cover, Black Ops"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Banks Power</div>
+          <div class="pcard__t">RAM Air Differential Cover Kit, Black Ops</div>
+          <p class="pcard__p">A finned cover for the AAM rear axle, hardware included. Gear oil is the first fluid to give up when you drag a gooseneck up a grade in summer, and the scoops force air over the fins to keep it cooler with less fluid than the big flat back covers. Heads up: it doesn't fit Ram trucks with airbag suspension alone, and the factory sway bar needs spacers.</p>
+          <div class="pcard__sku">SKU 19286</div>
+          <div class="pcard__price num">$425.00</div>
+          <div class="pcard__acts">
+            <a class="a2" href="https://www.customwheeloffset.com/store/performance/driveline/diff-covers" target="_blank" rel="noopener">Shop Drivetrain</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="light">
+        <div class="pcard__img"><img src="images/part-mirrorlights.jpg" alt="Boost Auto Parts mirror lights"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Boost Auto Parts</div>
+          <div class="pcard__t">Mirror Lights</div>
+          <p class="pcard__p">Switchback LEDs that drop into the factory tow mirror housings. These are best used for clearance lighting and turn signals, of course.</p>
+          <div class="pcard__sku">SKU 2973BX-BAUTO</div>
+          <div class="pcard__price num">$182.36</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/lighting/155914/boost-auto-tow-mirror-lights-led-switchback-clear-lens-19-22-ram-2500-3500" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/lighting" target="_blank" rel="noopener">Shop Lighting</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="light">
+        <div class="pcard__img pcard__img--product"><img src="images/part-cablights.jpg" alt="Boost Auto Parts S Series cab lights, set of five"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Boost Auto Parts</div>
+          <div class="pcard__t">Cab Lights</div>
+          <p class="pcard__p">LED cab lights across the roof. On a truck that didn't come with them, it's the change you notice from the furthest away, and it's here for the look, plain and simple.</p>
+          <div class="pcard__sku">SKU 5965-AROSU-BAUTO</div>
+          <div class="pcard__price num">$369.31</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/lighting/171307/boost-auto-s-series-cab-lights-amber-running-light-only-with-start-up-19-23-dodge-ram-2500-3500?year=2020&amp;make=Ram&amp;model=3500&amp;trim=Laramie&amp;drive=4WD&amp;modification=Minor+Plastic+Trimming&amp;rubbing=No+rubbing+or+scrubbing&amp;suspension=Suspension+Lift+6.5%22" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/lighting" target="_blank" rel="noopener">Shop Lighting</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="light">
+        <div class="pcard__img"><img src="images/part-ufoglow.jpg" alt="Adrenaline Offroad UFO Glow bundle kit"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Adrenaline Offroad</div>
+          <div class="pcard__t">UFO Glow Bundle Kit</div>
+          <p class="pcard__p">The full glow setup, all for looks. UltraLux rock lights under the body, ring lights inside the wheels, each on its own harness, and the install is an afternoon on a creeper running wire. None of it makes the truck work better. That's the point.</p>
+          <div class="pcard__price pcard__price--top num">$929.99</div>
+          <div class="pcard__acts">
+            <a class="a2" href="https://www.customwheeloffset.com/store/lighting/rock-lights" target="_blank" rel="noopener">Shop Lighting</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="steer">
+        <div class="pcard__img pcard__img--product"><img src="images/part-steeringkit.jpg" alt="Kryptonite Death Grip steering kit, tie rod and drag link"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Kryptonite</div>
+          <div class="pcard__t">Death Grip Steering Kit</div>
+          <p class="pcard__p">Solid 7075 aluminum links with a 2in outer diameter and heavy duty rod ends, built to hold alignment from stock height up to a 6in lift and backed by a lifetime warranty. A 14in wide tire puts more leverage on the steering than Ram planned for, and this kit keeps the wheel from wandering when a trailer starts pushing.</p>
+          <div class="pcard__sku">SKU KRDSK14-KRYPT</div>
+          <div class="pcard__price num">$1,499.99</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/suspension/120364/kryptonite-death-grip-steering-kit" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/suspension" target="_blank" rel="noopener">Shop Steering</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="steer">
+        <div class="pcard__img"><img src="images/part-trackbar.jpg" alt="BDS Suspension front adjustable track bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">BDS Suspension</div>
+          <div class="pcard__t">Front Adjustable Track Bar</div>
+          <p class="pcard__p">A forged adjustable track bar that lets you re-center the axle. Lift a solid front axle and it stops sitting centered under the truck, and the factory bar is a fixed length, so it can't put it back.</p>
+          <div class="pcard__sku">SKU BDS122324</div>
+          <div class="pcard__price num">$407.95</div>
+          <div class="pcard__acts">
+            <a class="a2" href="https://www.customwheeloffset.com/store/suspension" target="_blank" rel="noopener">Shop Steering</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="steer">
+        <div class="pcard__img"><img src="images/part-stabilizer.jpg" alt="Kryptonite Death Grip dual steering stabilizer kit with Fox 2.0 shocks"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Kryptonite</div>
+          <div class="pcard__t">Death Grip Dual Steering Stabilizer Kit, Fox 2.0</div>
+          <p class="pcard__p">Two Fox 2.0 Performance Series shocks across the steering to cut shimmy and bump steer. One stabilizer runs out of damping with a 35in mud terrain at highway speed. Two don't.</p>
+          <div class="pcard__sku">SKU KRDSS14S-KRYPT</div>
+          <div class="pcard__price num">$699.99</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/suspension/173549/kryptonite-death-grip-dual-steering-stabilizer-kit-w-fox-20-shocks" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/suspension" target="_blank" rel="noopener">Shop Steering</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="exh">
+        <div class="pcard__img pcard__img--product"><img src="images/part-exhaust.jpg" alt="MagnaFlow Black DPF Series filter-back exhaust system"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">MagnaFlow</div>
+          <div class="pcard__t">Black DPF Series</div>
+          <p class="pcard__p">A 5in stainless DPF back system in a black finish. It bolts on behind the factory DPF, so all the emissions equipment stays put. It's not a power part on a truck this new. What it changes is the exit volume of the exhaust gas.</p>
+          <div class="pcard__sku">SKU MAG-17071</div>
+          <div class="pcard__price num">$593.00</div>
+          <div class="pcard__acts">
+            <a class="a1" href="https://www.customwheeloffset.com/store/performance/77499/magnaflow-5-single-side-rear-exit-dpf-back-exhaust-black-tip-19-24-ram-2500-3500-67l-crew-extended-crew-cab" target="_blank" rel="noopener">View Product</a>
+            <a class="a2" href="https://www.customwheeloffset.com/store/performance/exhaust" target="_blank" rel="noopener">Shop Exhaust</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv" data-cat="bed">
+        <div class="pcard__img pcard__img--product"><img src="images/part-tonneau.jpg" alt="Agri-Cover Lomax tonneau cover"></div>
+        <div class="pcard__body">
+          <div class="pcard__brand">Agri-Cover</div>
+          <div class="pcard__t">Lomax Tonneau Cover</div>
+          <p class="pcard__p">A hard folding cover for the bed, and the one part that's honestly both: it keeps cargo dry and it cleans up the back of the truck. When you're carrying gooseneck hardware, that's the difference between gear sitting in the weather and gear staying out of it.</p>
+          <div class="pcard__price pcard__price--top num">$1,115.20<em>from</em></div>
+          <div class="pcard__acts">
+            <a class="a2" href="https://www.customwheeloffset.com/store/exterior-accessories/bed-accessories" target="_blank" rel="noopener">Shop Bed</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+      <button class="carousel__arrow carousel__arrow--next" type="button" id="pgNext" aria-label="Next parts"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+    </div>
+
+    <div class="pager rv" id="pager" hidden>
+      <div class="pager__info">Page <b id="pgNow">1</b> of <b id="pgTotal">1</b> <span id="pgCount"></span></div>
+      <div class="pager__dots" id="pgDots"></div>
+    </div>
+
+    <div class="shopall rv">
+      <a class="btn btn--primary btn--wide" href="https://www.customwheeloffset.com/" target="_blank" rel="noopener">Shop all parts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO ===================== -->
+<section class="sec video" id="watch">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">Watch it now</div>
+      <h2 class="display">Watch the full build.</h2>
+      <p class="lede" style="margin-top:20px">
+        Every part, every call, and the meter moving after each one. Hit play and see where the truck
+        ends up.
+      </p>
+    </div>
+    <div class="vidbox rv">
+      <!-- Replace this placeholder block with the live embed:
+           <iframe src="https://www.youtube.com/embed/TK_VIDEO_ID" title="Can you build a show truck that can still tow?"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                   allowfullscreen loading="lazy"></iframe> -->
+      <div class="vidbox__ph">
+        <div class="playmark" aria-hidden="true"></div>
+        <div class="label" style="color:var(--text)">YouTube embed goes here</div>
+        <div><span class="tk">TK_VIDEO_ID</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STORY ===================== -->
+<section class="sec" id="story">
+  <div class="story__bg" aria-hidden="true">
+    <img src="images/story-shop.jpg" alt="" loading="lazy">
+  </div>
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">The build story</div>
+      <h2 class="display">Not boring.<br>Still capable.</h2>
+      <div class="byline">Custom Offsets Build Team . <span class="tk">TK_DATE</span> . 4 Min Read</div>
+    </div>
+    <div class="prose rv">
+      <p>
+        You bought a heavy duty truck to do heavy duty work. Then you look at it for a while and it's just kind
+        of boring. That's exactly where we were with this <strong>2026 Ram 3500</strong>.
+      </p>
+      <p>
+        So this build asks one question: what can you add, and what should you skip, to keep a work truck
+        working while it looks good doing it? Every part got called a show mod, a work mod, or both, and the
+        meter at the top of this page kept score the whole way.
+      </p>
+      <p>
+        We build one of these every year, and we always drift too far toward show. It's easy to overdo it when
+        all the fun parts are sitting right there. This time, the goal was to land in the middle.
+      </p>
+
+      <h3>Wheels and tires, the decision that limits everything else</h3>
+      <p>
+        The 26x14s are the widest we can go without losing towing ability, which makes them the one decision
+        that limits everything else. Honestly, they're almost too wide. You can go wider on a 4in lift if you
+        want the look, but if you haul heavy, go narrower.
+      </p>
+      <p>
+        A 14in wide wheel changes more than the look. It moves the contact patch outboard, and the bearings,
+        steering links, and track bar all feel that on every mile. That's why 26x14 was our ceiling, not our
+        starting point, and it's why three of the next four parts exist to hold the front end straight
+        underneath it.
+      </p>
+
+      <h3>The parts that earn their keep</h3>
+      <p>
+        Four groups do the real work, and only one of them is visible with the truck sitting still.
+      </p>
+      <p>
+        The <strong>Kryptonite steering group</strong> is the one nobody sees and the one this truck needed
+        most. Solid 7075 links and a dual stabilizer on two Fox 2.0 shocks, all hidden behind the wheels, all
+        there because a 14in tire puts more leverage on the steering than Ram planned for.
+      </p>
+      <p>
+        The <strong>BDS track bar</strong> goes on for the same reason: lift a solid axle and it stops sitting
+        centered under the truck. An adjustable bar puts it back.
+      </p>
+      <p>
+        The <strong>differential cover</strong> is the quiet one. Gear oil is the first fluid to give up when
+        you drag a gooseneck up a grade in July, and the finned Banks cover keeps that oil cooler instead of
+        asking you to carry more of it. Drain, clean, bolt on, refill. It's an afternoon.
+      </p>
+      <p>
+        The <strong>brakes</strong> are the least exciting parts on the truck and the first ones you'd miss.
+        Drilled and slotted rotors, black so they don't look rusty behind an open spoke wheel, on a truck whose
+        tires got heavier while the trailer stayed just as heavy.
+      </p>
+
+      <h3>The parts that are just for you</h3>
+      <p>
+        The <strong>glow kit</strong> is the purest show part here. Rock lights under the body, ring lights in
+        the wheels, an afternoon on a creeper running wire, and none of it makes the truck work better. Park it
+        after dark at a show and it's the first thing people walk over to.
+      </p>
+      <p>
+        The <strong>cab and mirror lights</strong> are all about the look. They trace the roofline and the sides
+        of the truck so it reads as one finished build instead of a truck with some lights added on.
+      </p>
+      <p>
+        The <strong>billet diesel and DEF caps</strong> are the cheapest change on the whole build and the one
+        only you'll ever see. Nobody opens your fuel door but you.
+      </p>
+      <p>
+        And the <strong>exhaust</strong>. A 5in DPF back in black that leaves every piece of emissions equipment
+        on the truck. It looks like a work part and scores like a show part, and we called it that way.
+      </p>
+
+      <h3>Where it landed</h3>
+      <p>
+        Dead center, for the first time ever.
+      </p>
+      <p>
+        Nine parts averaged out, and the marker sits right on the middle. The glow kit pulled hard toward show,
+        the steering group pulled just as hard toward work, and the two mostly cancel out.
+      </p>
+      <p>
+        That's the story of the build. The truck spent its summer parked on grass at shows and hooked to a
+        gooseneck the rest of the week.
+      </p>
+      <p>
+        If your truck still works for a living, don't leave a part off. Come down a number instead. Go narrower
+        than 14in. Everything else on this list either helps the truck do its job or costs nothing but money.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec faqsec" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">Straight answers</div>
+      <h2 class="display">Questions we get<br>on builds like this.</h2>
+    </div>
+    <div class="faq rv">
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">Can you build a show truck that can still tow?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>That's the whole question this build exists to answer. The rule was simple: every part gets called a show mod, a work mod, or both, and we track the running average instead of guessing at the end. Land in the middle and you've got a truck that turns heads at a show and still hooks up to a trailer on Monday. This one landed dead center, and the real proof is that the truck spent its whole summer doing both jobs.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">How wide can you go before it hurts towing?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>On this truck, 14in wide is the line. It's the widest we could go without losing towing ability, and honestly, it's almost too wide.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">What makes something a work mod instead of a show mod?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>A work mod changes what the truck can do: runs cooler, stops better, steers straighter under load, keeps the bed dry. A show mod changes how it looks and nothing else. Plenty of parts are both, which is why the meter is a scale and not a switch. Watch out for the parts that look great and quietly cost you capability.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">Which parts should you avoid on a truck that still has to work?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>Three. The wheels are the big one: 26x14 is as wide as this truck goes without giving up towing, so if yours works every week, go with a narrower set. Drilled rotors are the wrong call if you tow at the top of the rating, since drilling adds stress risers and heat cycling is what kills rotors behind a gooseneck. And the glow kit is the easy skip. It costs you nothing in capability. Everything else here either helps the truck work or doesn't sacrifice anything for performance.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">Where did this build actually land on the meter?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>Dead center. The glow kit pulled it furthest toward show, the Kryptonite steering group pulled it furthest toward work, and the two nearly cancel out.</p></div>
+      </div>
+      <div class="q">
+        <button class="q__btn" aria-expanded="false"><span class="q__t">Does this parts list only work on a Ram 3500?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body"><p>The lift, track bar, steering group, diff cover, and exhaust are all cut for this chassis and axle, so a Ford or GM owner needs the equivalent, not the same box. What transfers is the order of operations: pick the lift that fits your tire instead of the tallest one on the shelf, spend on steering and cooling before lighting, and leave the emissions equipment alone. Run your year, make, and model through the fitment tool and it'll only show you what actually bolts on.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOGS ===================== -->
+<section class="sec blogs" id="blogs">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">Latest from the garage</div>
+      <h2 class="display">Build knowledge.<br>Straight from Custom Offsets.</h2>
+      <p class="lede" style="margin-top:20px">
+        Fresh build guides, brand breakdowns, and behind the scenes from the Custom Offsets team.
+        No filler. Real fitment, real builds, real opinions.
+      </p>
+    </div>
+    <div class="bgrid">
+      <a class="bcard rv" href="https://www.customwheeloffset.com/blogs/1696/how-to-safely-tow-with-a-lifted-truck" target="_blank" rel="noopener">
+        <div class="bcard__img"><img src="images/blog-02.jpg" alt="A lifted white Chevy Silverado with a gooseneck ball in the bed" loading="lazy"></div>
+        <div class="bcard__body">
+          <div class="bcard__cat">Towing</div>
+          <div class="bcard__t">How To Safely Tow With A Lifted Truck</div>
+          <div class="bcard__m">Custom Offsets . Sep 12, 2024</div>
+        </div>
+      </a>
+      <a class="bcard rv" href="https://www.customwheeloffset.com/blogs/366/what-fits-my-5th-gen-ram" target="_blank" rel="noopener">
+        <div class="bcard__img"><img src="images/blog-01.jpg" alt="What fits? 5th gen Ram: a lifted Ram 1500 on big polished wheels" loading="lazy"></div>
+        <div class="bcard__body">
+          <div class="bcard__cat">Fitment Guide</div>
+          <div class="bcard__t">What Wheels and Tires Fit a 5th Gen Ram 1500? (2019-2026)</div>
+          <div class="bcard__m">Custom Offsets . Aug 26, 2026</div>
+        </div>
+      </a>
+      <a class="bcard rv" href="https://www.customwheeloffset.com/blogs/1999/ram-trucks-reintroducing-hemi-v8-engine-option" target="_blank" rel="noopener">
+        <div class="bcard__img"><img src="images/blog-03.jpg" alt="A Ram 1500 with the Hemi V8 engine option" loading="lazy"></div>
+        <div class="bcard__body">
+          <div class="bcard__cat">News</div>
+          <div class="bcard__t">Ram Trucks Reintroducing Hemi V8 Engine Option</div>
+          <div class="bcard__m">Custom Offsets . Jul 29, 2025</div>
+        </div>
+      </a>
+    </div>
+    <div class="blogs__more">
+      <a class="btn btn--ghost" href="https://www.customwheeloffset.com/blogs" target="_blank" rel="noopener">See all blogs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEXT STEP ===================== -->
+<section class="sec next">
+  <div class="wrap next__in">
+    <div class="kicker kicker--p kicker--c">Your truck is next</div>
+    <h2 class="display">Start your build.</h2>
+    <p class="lede" style="text-align:center">
+      Run your truck through the fitment gallery, see this setup on your exact year and trim before you spend
+      a dollar, and order the whole build in one shot.
+    </p>
+    <div class="trust"><b>Build it right.</b> <span>See it first.</span> <b>Trust the fit.</b></div>
+    <div class="next__row">
+      <a class="btn btn--primary" href="https://www.customwheeloffset.com/" target="_blank" rel="noopener">Start your build at Custom Offsets</a>
+      <a class="btn btn--ghost" href="#meter">Back to the meter</a>
+    </div>
+  </div>
+  <div class="closer rv">
+    <img src="images/cta-ram.jpg" alt="The finished 2026 Ram 3500 in profile on 26x14 American Force wheels" loading="lazy">
+  </div>
+</section>
+
+<!-- FOOTER LINKS: every href below is a best-guess path on customwheeloffset.com. The live site could not be
+     fetched to confirm them (AWS WAF blocks automated requests), so check each one before launch. -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a href="https://www.customwheeloffset.com/" target="_blank" rel="noopener"><img src="images/logo.png" alt="Custom Offsets"></a>
+        <p class="foot__tag">The #1 source for custom truck wheel and tire setups. Real fitment data from real truck builds, so you see it on your truck before you buy.</p>
+        <a class="foot__phone" href="tel:9202210110">920-221-0110</a>
+        <div class="foot__social">
+          <a href="https://www.youtube.com/@CustomOffsets" target="_blank" rel="noopener" aria-label="Custom Offsets on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></g></svg></a>
+          <a href="https://www.instagram.com/customoffsets" target="_blank" rel="noopener" aria-label="Custom Offsets on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></g></svg></a>
+          <a href="https://www.facebook.com/customoffsets" target="_blank" rel="noopener" aria-label="Custom Offsets on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></g></svg></a>
+          <a href="https://www.tiktok.com/@customoffsets" target="_blank" rel="noopener" aria-label="Custom Offsets on TikTok"><svg viewBox="-32 0 512 512" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="m432.734375 112.464844c-53.742187 0-97.464844-43.722656-97.464844-97.464844 0-8.285156-6.71875-15-15-15h-80.335937c-8.285156 0-15 6.714844-15 15v329.367188c0 31.59375-25.703125 57.296874-57.300782 57.296874-31.59375 0-57.296874-25.703124-57.296874-57.296874 0-31.597657 25.703124-57.300782 57.296874-57.300782 8.285157 0 15-6.714844 15-15v-80.335937c0-8.28125-6.714843-15-15-15-92.433593 0-167.632812 75.203125-167.632812 167.636719 0 92.433593 75.199219 167.632812 167.632812 167.632812 92.433594 0 167.636719-75.199219 167.636719-167.632812v-145.792969c29.855469 15.917969 63.074219 24.226562 97.464844 24.226562 8.285156 0 15-6.714843 15-15v-80.335937c0-8.28125-6.714844-15-15-15zm-15 79.714844c-32.023437-2.664063-62.433594-13.851563-88.707031-32.75-4.566406-3.289063-10.589844-3.742188-15.601563-1.171876-5.007812 2.5625-8.15625 7.71875-8.15625 13.347657v172.761719c0 75.890624-61.746093 137.632812-137.636719 137.632812-75.890624 0-137.632812-61.742188-137.632812-137.632812 0-70.824219 53.773438-129.328126 122.632812-136.824219v50.8125c-41.015624 7.132812-72.296874 42.984375-72.296874 86.011719 0 48.136718 39.160156 87.300781 87.296874 87.300781 48.140626 0 87.300782-39.164063 87.300782-87.300781v-314.367188h51.210937c6.871094 58.320312 53.269531 104.71875 111.589844 111.589844zm0 0"/></g></svg></a>
+        </div>
+      </div>
+      <nav class="foot__cols" aria-label="Custom Offsets links">
+        <div class="foot__col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="https://www.customwheeloffset.com/wheels" target="_blank" rel="noopener">Wheels</a></li>
+            <li><a href="https://www.customwheeloffset.com/tires" target="_blank" rel="noopener">Tires</a></li>
+            <li><a href="https://www.customwheeloffset.com/suspension" target="_blank" rel="noopener">Suspension</a></li>
+            <li><a href="https://www.customwheeloffset.com/wheel-and-tire-packages" target="_blank" rel="noopener">Wheel &amp; Tire Packages</a></li>
+            <li><a href="https://www.customwheeloffset.com/shop-by-vehicle" target="_blank" rel="noopener">Shop by Vehicle</a></li>
+          </ul>
+        </div>
+        <div class="foot__col">
+          <h3>Tools</h3>
+          <ul>
+            <li><a href="https://www.customwheeloffset.com/wheel-offset-gallery" target="_blank" rel="noopener">Offset Gallery</a></li>
+            <li><a href="https://www.customwheeloffset.com/wheel-offset-calculator" target="_blank" rel="noopener">Offset Calculator</a></li>
+            <li><a href="https://www.customwheeloffset.com/tire-size-calculator" target="_blank" rel="noopener">Tire Size Calculator</a></li>
+            <li><a href="https://www.customwheeloffset.com/what-is-wheel-offset" target="_blank" rel="noopener">What Is Offset?</a></li>
+          </ul>
+        </div>
+        <div class="foot__col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="https://www.customwheeloffset.com/about-us" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="https://www.customwheeloffset.com/blogs" target="_blank" rel="noopener">Blog</a></li>
+            <li><a href="https://www.youtube.com/@CustomOffsets" target="_blank" rel="noopener">Videos</a></li>
+            <li><a href="https://www.customwheeloffset.com/reviews" target="_blank" rel="noopener">Reviews</a></li>
+            <li><a href="https://www.customwheeloffset.com/careers" target="_blank" rel="noopener">Careers</a></li>
+          </ul>
+        </div>
+        <div class="foot__col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="https://www.customwheeloffset.com/contact-us" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://www.customwheeloffset.com/financing" target="_blank" rel="noopener">Financing</a></li>
+            <li><a href="https://www.customwheeloffset.com/shipping-policy" target="_blank" rel="noopener">Shipping Policy</a></li>
+            <li><a href="https://www.customwheeloffset.com/returns" target="_blank" rel="noopener">Returns</a></li>
+            <li><a href="https://www.customwheeloffset.com/warranty" target="_blank" rel="noopener">Wheel &amp; Tire Warranty</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="foot__legal">
+      <small>
+        &copy; 2026 Custom Offsets . <a href="https://www.customwheeloffset.com/" target="_blank" rel="noopener">customwheeloffset.com</a> . <a href="tel:9202210110">920-221-0110</a><br>
+        All product names and trademarks are the property of their respective owners. Pricing shown is approximate and subject to change. Financing through Affirm subject to approval. Katapult is a lease-to-own option with its own terms.
+      </small>
+      <div class="foot__links">
+        <a href="https://www.customwheeloffset.com/terms" target="_blank" rel="noopener">Terms</a>
+        <a href="https://www.customwheeloffset.com/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://www.customwheeloffset.com/sitemap" target="_blank" rel="noopener">Site Map</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

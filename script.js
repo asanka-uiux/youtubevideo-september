@@ -238,6 +238,8 @@
     if (pgPage > total - 1) pgPage = total - 1;
     if (pgPage < 0) pgPage = 0;
     var start = pgPage * PER_PAGE, end = start + PER_PAGE;
+    // a short last page keeps its natural height: the height hold would otherwise stretch its lone card to fill the grid
+    if (pgPool.slice(start, end).length < PER_PAGE) el('pgrid').style.minHeight = '';
 
     pcards.forEach(function(c){ c.style.display = 'none'; });
     pgPool.slice(start, end).forEach(function(c){ c.style.display = ''; c.classList.add('in'); });
@@ -289,8 +291,8 @@
       if (n !== null) { e.preventDefault(); pickTab(ptabs[n]); ptabs[n].focus(); }
     });
   });
-  // paging keeps the page still: no scrolling, and the grid holds at least its current height so a short
-  // last page doesn't pull the arrows and everything below it upward. Category changes and resizes release it.
+  // paging keeps the page still: no scrolling, and between full pages the grid holds at least its current height
+  // so the arrows and everything below stay put. A short last page, a category change or a resize releases it.
   function holdGrid(){
     var g = el('pgrid');
     g.style.minHeight = Math.max(g.offsetHeight, parseFloat(g.style.minHeight) || 0) + 'px';

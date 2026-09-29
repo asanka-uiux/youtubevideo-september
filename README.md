@@ -1512,3 +1512,34 @@ duplicate IDs, no dead in-page anchors, and every `target="_blank"` link has `re
 
 - The meter's Steering "Why we chose it" copy now reads "A 14in wheel is more leverage than the factory parts were built
   for." (replaces the round 34 wording).
+
+## 43. Round 36: wheel card name
+
+- Parts list wheel card title "26x14 Wheels" is now "American Force Vantage CC 26x14 -90". The brand line above it still
+  says "American Force", so the brand now shows twice on that card.
+
+## 44. Round 37: SKUs removed from the product cards
+
+- The "SKU ..." line is gone from all 11 parts-list cards that had one. The two cards that never had a SKU
+  (UFO Glow bundle, Tonneau cover) already used `pcard__price--top` for the divider, so every price now uses it and all 13
+  cards have the same divider and spacing above the price.
+- The unused `.pcard__sku` rules were removed from `styles.css` (base and 821px+ overrides).
+- The SKU codes still appear inside the "View Product" links (`.../buy-wheel-offset/CKH30-2614-8x650-SF/...`). Those are
+  product URLs and were left alone.
+
+## 45. Round 38: shorter Lomax Tonneau Cover card copy
+
+- The bed card's description was 258 characters and ran to 6 lines, the longest on the page after the differential cover
+  and steering kit. It's now 159 characters ("A hard folding cover for the bed, and honestly both a show part and a
+  work part. It keeps cargo and gooseneck hardware dry and cleans up the back of the truck."), 4 lines, and the card is
+  about 44px shorter on desktop. The meter's Tonneau copy is separate and unchanged.
+
+## 46. Round 39: lone card on the last parts page no longer stretched
+
+- Round 31's height hold (`holdGrid()`) kept the grid at page 2's height, so on page 3 the single Lomax Tonneau card was
+  stretched to fill it (1367px tall on desktop, 1395px on phones, against a natural 603 and 412). `drawPage()` now releases
+  the hold whenever the visible page has fewer than 6 cards, so the card is its natural height. Holding still applies between full pages.
+- `.carousel{overflow-anchor:none}`: without it the browser's scroll anchoring pulled the page by up to 393px when the grid
+  got shorter (it keeps the mid-grid arrow in place). Now, scrolled to the top of the grid the page doesn't move, and scrolled
+  down to the pager the pager stays put and the card is visible above it. Measured at 1440 and 390 wide, including going back to
+  page 2. (Safari has no scroll anchoring, so there the page just doesn't move.)

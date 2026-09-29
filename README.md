@@ -1496,3 +1496,14 @@ duplicate IDs, no dead in-page anchors, and every `target="_blank"` link has `re
 ## 39. Round 32: story byline date
 
 - `TK_DATE` in the build story byline is now `<time datetime="2026-09">September 2026</time>`.
+
+## 40. Round 33: both financing CTAs red
+
+- In the financing modal, "Pre-qualify with Katapult" goes from `btn--ghost` to `btn--primary`, matching "Pre-qualify with Affirm".
+
+## 41. Round 34: steering copy says 14in wheels
+
+- The meter's Steering "Why we chose it" copy now reads "14in wheels put more leverage on the steering than the factory
+  parts were built for." (it was "A 14in tire is more leverage…").
+- The parts list's Death Grip Steering Kit card gets the same fix: "14in wide wheels put more leverage on the steering
+  than Ram planned for…" (it was "A 14in wide tire puts…").

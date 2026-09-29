@@ -149,6 +149,7 @@
     b.type = 'button';
     b.className = 'pk';
     b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'detail');
     b.setAttribute('aria-selected', 'false');
     b.tabIndex = -1;
     b.innerHTML = '<i></i>' + d.cat + (d.cat === 'Lighting' ? ' . ' + (d.id === 'ufo' ? 'Glow' : 'Boost') : '');
@@ -201,14 +202,22 @@
     finModal.classList.remove('on');
     finModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (lastFocus) lastFocus.focus();
+    // Safari doesn't focus a clicked button, so fall back to the trigger rather than dropping focus on <body>
+    (lastFocus && lastFocus !== document.body ? lastFocus : finOpen).focus();
   }
   if (finOpen) finOpen.addEventListener('click', openFin);
   [].slice.call(finModal.querySelectorAll('[data-close]')).forEach(function(n){
     n.addEventListener('click', closeFin);
   });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && finModal.classList.contains('on')) closeFin();
+    if (!finModal.classList.contains('on')) return;
+    if (e.key === 'Escape') { closeFin(); return; }
+    if (e.key !== 'Tab') return;
+    // keep focus inside the dialog: wrap from the last control to the first and back
+    var f = [].slice.call(finModal.querySelectorAll('a[href],button:not([disabled])'));
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
   /* ============ PARTS CATEGORY TABS ============ */
@@ -243,6 +252,8 @@
     el('pgPrev').disabled = pgPage === 0;
     // left arrow only shows once the shopper has paged forward; it keeps its space so the layout doesn't shift
     el('pgPrev').classList.toggle('is-off', pgPage === 0);
+    // 821px and up: on page 1 the left column collapses so the cards sit flush with the heading and tabs
+    el('pgPrev').parentNode.classList.toggle('is-first', pgPage === 0);
     el('pgNext').disabled = pgPage >= total - 1;
 
     var dots = '';
@@ -255,28 +266,44 @@
 
   function setCat(cat){
     pgCat = cat; pgPage = 0;
+    el('pgrid').style.minHeight = '';
     pgPool = pcards.filter(function(c){ return matches(cat, c); });
     drawPage();
   }
 
-  ptabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      ptabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
-      setCat(t.dataset.cat);
+  function pickTab(t){
+    ptabs.forEach(function(x){
+      x.setAttribute('aria-selected', x === t ? 'true' : 'false');
+      x.tabIndex = x === t ? 0 : -1;
+    });
+    setCat(t.dataset.cat);
+  }
+  ptabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ pickTab(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % ptabs.length;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + ptabs.length) % ptabs.length;
+      if (e.key === 'Home') n = 0;
+      if (e.key === 'End') n = ptabs.length - 1;
+      if (n !== null) { e.preventDefault(); pickTab(ptabs[n]); ptabs[n].focus(); }
     });
   });
-  function keepGridInView(){
-    var g = el('pgrid').getBoundingClientRect();
-    if (g.top < 80) window.scrollTo({ top: el('pgrid').offsetTop - 90, behavior: 'smooth' });
+  // paging keeps the page still: no scrolling, and the grid holds at least its current height so a short
+  // last page doesn't pull the arrows and everything below it upward. Category changes and resizes release it.
+  function holdGrid(){
+    var g = el('pgrid');
+    g.style.minHeight = Math.max(g.offsetHeight, parseFloat(g.style.minHeight) || 0) + 'px';
   }
+  window.addEventListener('resize', function(){ el('pgrid').style.minHeight = ''; });
   el('pgPrev').addEventListener('click', function(){
-    pgPage--; drawPage(); keepGridInView();
+    holdGrid(); pgPage--; drawPage();
     if (pgPage === 0) el('pgNext').focus(); // the left arrow just went invisible, so hand focus to the right one
   });
-  el('pgNext').addEventListener('click', function(){ pgPage++; drawPage(); keepGridInView(); });
+  el('pgNext').addEventListener('click', function(){ holdGrid(); pgPage++; drawPage(); });
   pgDots.addEventListener('click', function(e){
     var b = e.target.closest('button[data-p]');
-    if (b) { pgPage = parseInt(b.dataset.p, 10); drawPage(); keepGridInView(); }
+    if (b) { holdGrid(); pgPage = parseInt(b.dataset.p, 10); drawPage(); }
   });
   setCat('all');
 
@@ -306,7 +333,10 @@
     bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
     var mark = y + 140, best = -1;
     secs.forEach(function(sec, n){ if (sec && sec.offsetTop <= mark) best = n; });
-    navLinks.forEach(function(a, n){ a.classList.toggle('on', n === best); });
+    navLinks.forEach(function(a, n){
+      a.classList.toggle('on', n === best);
+      if (n === best) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);

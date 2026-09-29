@@ -1424,3 +1424,71 @@ original page does.
   also animating `visibility`, which made the arrow show and hide late.
 - Checked in headless Chrome at 1440 and 390 wide: page 1 hidden, pages 2 and 3 visible, back to page 1 hidden,
   and a jump to page 1 through the dots hidden.
+
+## 35. Round 28: accessibility pass (WCAG 2.2 AA)
+
+Scanner (`~/.claude/skills/ada-compliance`) before: 0 errors, 1 warning (no `<main>`). After: 0 errors, 0 warnings.
+The remaining 83 notes are advisory (small type sizes and links that open a new tab without saying so; see "Open" below).
+
+### Fixed
+- **Skip link and `<main>` (2.4.1, 1.3.1).** "Skip to main content" is the first Tab stop and stays off screen until
+  focused. `<main id="main">` wraps everything from the hero down to the footer.
+- **Visible keyboard focus (2.4.7).** Every control gets one `:focus-visible` ring (2px white, 3px offset) instead of
+  the browser default, which was faint on the red buttons.
+- **Financing modal (2.1.2, 2.4.3).** Tab and Shift+Tab now wrap inside the dialog while it's open. On close, focus
+  goes back to the "Get pre-qualified" button. Before, Safari dropped focus to the top of the page.
+- **Parts category tabs (2.1.1, 4.1.2).** They follow the ARIA tabs pattern: one Tab stop, and Left/Right/Up/Down plus
+  Home/End move between tabs. `aria-controls` points at the grid, which is now a labelled `tabpanel`. The meter's part
+  picker gets the same `aria-controls`, pointing at its detail panel.
+- **Pager (4.1.3).** "Page 2 of 3 . 13 parts" is a polite live region, so paging and category changes are announced.
+- **Pager dots (2.5.8, 1.4.11).** Each dot is a 24x24 tap target (was 9x9) with the same dot drawn inside. Inactive
+  dots go from rgba(255,255,255,.16) (1.59:1) to #6A6A72 (3.3 to 3.7:1 on every panel colour).
+- **FAQ (1.3.1, 4.1.2).** Each question uses `aria-controls` to point at its answer, and each answer is a labelled
+  region. Collapsed answers are `visibility:hidden` after the close animation, so screen readers no longer read
+  answers that look closed.
+- **Part card names are `<h3>` (2.4.6, 2.4.4).** Screen-reader users can jump from card to card, and every
+  "View Product" link gets its card's name as context. They look the same as before.
+- **Nav scrollspy:** the highlighted link also gets `aria-current="true"`.
+
+### Checked, no change needed
+Contrast across the page, including by hand over the red banner gradient (smallest is the "Payment partners" label at
+4.52:1). `lang`, page title, alt text present, `prefers-reduced-motion`, and no horizontal scroll at 320px. No
+duplicate IDs, no dead in-page anchors, and every `target="_blank"` link has `rel="noopener"`.
+
+### Open (design or launch decisions)
+- **BNPL banner glow pulses forever** (`finglow`, 3.4s loop). WCAG 2.2.2 asks that automatic motion running longer
+  than 5s can be paused. Reduced-motion users already get it off. Simplest fix is to run it once or twice
+  (`animation-iteration-count:1`).
+- **Very small type** (advisory, not a WCAG failure): "each" after prices 6.7px, card brand 8.8px, pills and flags about 9.5px.
+- **New-tab links aren't announced** (58 links, 3.2.5, AAA). Optional: add a visually hidden "(opens in new tab)".
+- **Video:** when the YouTube embed goes in, keep the `title` in the comment, use captions that have been checked
+  (not auto-captions) (1.2.2), and make sure the voiceover describes the visuals, or add audio description (1.2.5).
+- **Launch:** `og:image` is relative (social crawlers need an absolute URL), there's no `<link rel="canonical">`, and
+  the TK_ placeholders and footer hrefs still need checking.
+
+## 36. Round 29: brighter hero description on desktop
+
+- From 621px up, `.hero__sub` goes from #C9C9D1 to `var(--text)` (#E7E7EA). Over the brightest parts of the photo the
+  lowest contrast rises from about 4.7:1 to 6.3:1. It's still a step softer than the pure white headline. Phones keep #EDEDF1.
+
+## 37. Round 30: no left gap on page 1 of the parts list
+
+- From 821px up, the carousel is `64px | cards | 64px`. On page 1 `drawPage()` adds `.is-first` to `.carousel`, which
+  switches it to `cards | 64px` and removes the left arrow. The cards start flush with the heading and tabs.
+- From page 2 the left column and arrow come back, so the grid moves 84px right and gets 84px narrower. This is the
+  behaviour that was asked for ("gap only on page 1"). The right arrow never moves.
+- Below 821px nothing changes: the arrows sit under the grid, and the left one is invisible on page 1 as in round 27.
+- Measured at 1440 and 900 wide: on page 1 the grid's left edge matches the tabs, on page 2 it's 84px in, and it
+  matches again back on page 1, with focus moved to the right arrow.
+
+## 38. Round 31: paging keeps the page still, desktop partner label nudge
+
+- **Arrows and dots no longer scroll the page.** `keepGridInView()` (which scrolled back to the top of the grid on
+  every page change) is replaced by `holdGrid()`. Before each page change it sets the grid's `min-height` to its
+  current height, so a short last page (page 3 has a single card) doesn't pull the arrows and everything below
+  upward. A category tab or a window resize clears the lock.
+- Measured at 1440 and 390 wide: scroll position doesn't change across page 1 → 2 → 3 → 2. On mobile nothing
+  moves. On desktop, page 2 is about 27px taller than page 1 because the left arrow column makes the cards
+  narrower (round 30), so the vertically centred right arrow moves down about 14px.
+- **Desktop (1041px and up):** `.finbanner__lenders span` gets `padding-top:16px`, which lines "Payment partners"
+  up with the bottom of the Affirm and Katapult wordmarks.

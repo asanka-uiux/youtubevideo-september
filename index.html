@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
 <!-- ===================== NAV ===================== -->
 <nav class="nav">
@@ -38,6 +39,8 @@
   </div>
   <div class="progress" id="progress"></div>
 </nav>
+
+<main id="main" tabindex="-1">
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="top">
@@ -93,7 +96,7 @@
 
       <div class="picks" role="tablist" aria-label="Parts on this build" id="picks"></div>
 
-      <div class="detail" id="detail">
+      <div class="detail" id="detail" role="tabpanel" aria-label="Selected part">
         <div class="detail__vis">
           <span class="detail__badge" data-role="badge"></span>
           <img src="images/meter-wheels.jpg" alt="American Force 26x14" data-role="img">
@@ -201,26 +204,26 @@
         to see one group at a time.
       </p>
       <div class="ptabs" role="tablist" aria-label="Parts categories">
-        <button class="ptab" role="tab" aria-selected="true" data-cat="all">All Parts</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="wt">Wheels &amp; Tires</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="lift">Lift Kit</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="brake">Brakes</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="drive">Drivetrain</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="light">Lighting</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="steer">Steering</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="exh">Exhaust</button>
-        <button class="ptab" role="tab" aria-selected="false" data-cat="bed">Bed</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="true" tabindex="0" data-cat="all">All Parts</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="wt">Wheels &amp; Tires</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="lift">Lift Kit</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="brake">Brakes</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="drive">Drivetrain</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="light">Lighting</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="steer">Steering</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="exh">Exhaust</button>
+        <button class="ptab" role="tab" aria-controls="pgrid" aria-selected="false" tabindex="-1" data-cat="bed">Bed</button>
       </div>
     </div>
 
     <div class="carousel rv">
       <button class="carousel__arrow carousel__arrow--prev" type="button" id="pgPrev" aria-label="Previous parts"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-    <div class="pgrid" id="pgrid">
+    <div class="pgrid" id="pgrid" role="tabpanel" aria-label="Parts">
       <article class="pcard rv" data-cat="wheel">
         <div class="pcard__img pcard__img--product"><img src="images/part-wheels.jpg" alt="American Force 26x14 wheels"></div>
         <div class="pcard__body">
           <div class="pcard__brand">American Force</div>
-          <div class="pcard__t">26x14 Wheels</div>
+          <h3 class="pcard__t">26x14 Wheels</h3>
           <p class="pcard__p">Fourteen inches wide on a 26in wheel. Nothing on this build changes the look of the truck more.</p>
           <div class="pcard__sku">SKU CKH30-2614-8x650-SF</div>
           <div class="pcard__price num">$2,433.00<em>each</em></div>
@@ -235,7 +238,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-tires.jpg" alt="Fury Offroad Country Hunter MT II 35x14.50R26LT"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Fury Offroad</div>
-          <div class="pcard__t">Country Hunter MT II, 35x14.50R26LT</div>
+          <h3 class="pcard__t">Country Hunter MT II, 35x14.50R26LT</h3>
           <p class="pcard__p">A 35in mud terrain in a 14.50 section width to match the wheel, rated Load Range F with a 121 load index. That rating matters, because a tire this wide is easy to buy in a rating that can't carry what a 3500 is built to pull.</p>
           <div class="pcard__sku">SKU FCHIIF35145026</div>
           <div class="pcard__price num">$623.51<em>each</em></div>
@@ -250,7 +253,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-liftkit.jpg" alt="BDS Suspension 4in lift kit with radius arms"></div>
         <div class="pcard__body">
           <div class="pcard__brand">BDS Suspension</div>
-          <div class="pcard__t">4-inch Lift Kit</div>
+          <h3 class="pcard__t">4-inch Lift Kit</h3>
           <p class="pcard__p">A 4in lift with radius arms and dual rate coil springs. It's just big enough to make the 26x14s fit, and it keeps the truck comfortable to drive every day.</p>
           <div class="pcard__sku">SKU BDS1656H</div>
           <div class="pcard__price num">$2,097.67</div>
@@ -265,7 +268,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-rotors.jpg" alt="R1 Concepts black drilled and slotted rotor set"></div>
         <div class="pcard__body">
           <div class="pcard__brand">R1 Concepts</div>
-          <div class="pcard__t">Black Performance Drilled &amp; Slotted Rotor Set</div>
+          <h3 class="pcard__t">Black Performance Drilled &amp; Slotted Rotor Set</h3>
           <p class="pcard__p">Drilled and slotted rotors in a black finish for the 2026 Ram 3500. The slots and drilling help the pads shed heat, which matters now that the tires got heavier and the trailer didn't get lighter. The black finish keeps the rotor from looking rusty behind an open spoke wheel.</p>
           <div class="pcard__sku">SKU WHPN2-40136</div>
           <div class="pcard__price num">$988.00</div>
@@ -279,7 +282,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-diffcover.jpg" alt="Banks Power RAM Air differential cover, Black Ops"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Banks Power</div>
-          <div class="pcard__t">RAM Air Differential Cover Kit, Black Ops</div>
+          <h3 class="pcard__t">RAM Air Differential Cover Kit, Black Ops</h3>
           <p class="pcard__p">A finned cover for the AAM rear axle, hardware included. Gear oil is the first fluid to give up when you drag a gooseneck up a grade in summer, and the scoops force air over the fins to keep it cooler with less fluid than the big flat back covers. Heads up: it doesn't fit Ram trucks with airbag suspension alone, and the factory sway bar needs spacers.</p>
           <div class="pcard__sku">SKU 19286</div>
           <div class="pcard__price num">$425.00</div>
@@ -293,7 +296,7 @@
         <div class="pcard__img"><img src="images/part-mirrorlights.jpg" alt="Boost Auto Parts mirror lights"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Boost Auto Parts</div>
-          <div class="pcard__t">Mirror Lights</div>
+          <h3 class="pcard__t">Mirror Lights</h3>
           <p class="pcard__p">Switchback LEDs that drop into the factory tow mirror housings. These are best used for clearance lighting and turn signals, of course.</p>
           <div class="pcard__sku">SKU 2973BX-BAUTO</div>
           <div class="pcard__price num">$182.36</div>
@@ -308,7 +311,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-cablights.jpg" alt="Boost Auto Parts S Series cab lights, set of five"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Boost Auto Parts</div>
-          <div class="pcard__t">Cab Lights</div>
+          <h3 class="pcard__t">Cab Lights</h3>
           <p class="pcard__p">LED cab lights across the roof. On a truck that didn't come with them, it's the change you notice from the furthest away, and it's here for the look, plain and simple.</p>
           <div class="pcard__sku">SKU 5965-AROSU-BAUTO</div>
           <div class="pcard__price num">$369.31</div>
@@ -323,7 +326,7 @@
         <div class="pcard__img"><img src="images/part-ufoglow.jpg" alt="Adrenaline Offroad UFO Glow bundle kit"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Adrenaline Offroad</div>
-          <div class="pcard__t">UFO Glow Bundle Kit</div>
+          <h3 class="pcard__t">UFO Glow Bundle Kit</h3>
           <p class="pcard__p">The full glow setup, all for looks. UltraLux rock lights under the body, ring lights inside the wheels, each on its own harness, and the install is an afternoon on a creeper running wire. None of it makes the truck work better. That's the point.</p>
           <div class="pcard__price pcard__price--top num">$929.99</div>
           <div class="pcard__acts">
@@ -336,7 +339,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-steeringkit.jpg" alt="Kryptonite Death Grip steering kit, tie rod and drag link"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Kryptonite</div>
-          <div class="pcard__t">Death Grip Steering Kit</div>
+          <h3 class="pcard__t">Death Grip Steering Kit</h3>
           <p class="pcard__p">Solid 7075 aluminum links with a 2in outer diameter and heavy duty rod ends, built to hold alignment from stock height up to a 6in lift and backed by a lifetime warranty. A 14in wide tire puts more leverage on the steering than Ram planned for, and this kit keeps the wheel from wandering when a trailer starts pushing.</p>
           <div class="pcard__sku">SKU KRDSK14-KRYPT</div>
           <div class="pcard__price num">$1,499.99</div>
@@ -351,7 +354,7 @@
         <div class="pcard__img"><img src="images/part-trackbar.jpg" alt="BDS Suspension front adjustable track bar"></div>
         <div class="pcard__body">
           <div class="pcard__brand">BDS Suspension</div>
-          <div class="pcard__t">Front Adjustable Track Bar</div>
+          <h3 class="pcard__t">Front Adjustable Track Bar</h3>
           <p class="pcard__p">A forged adjustable track bar that lets you re-center the axle. Lift a solid front axle and it stops sitting centered under the truck, and the factory bar is a fixed length, so it can't put it back.</p>
           <div class="pcard__sku">SKU BDS122324</div>
           <div class="pcard__price num">$407.95</div>
@@ -365,7 +368,7 @@
         <div class="pcard__img"><img src="images/part-stabilizer.jpg" alt="Kryptonite Death Grip dual steering stabilizer kit with Fox 2.0 shocks"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Kryptonite</div>
-          <div class="pcard__t">Death Grip Dual Steering Stabilizer Kit, Fox 2.0</div>
+          <h3 class="pcard__t">Death Grip Dual Steering Stabilizer Kit, Fox 2.0</h3>
           <p class="pcard__p">Two Fox 2.0 Performance Series shocks across the steering to cut shimmy and bump steer. One stabilizer runs out of damping with a 35in mud terrain at highway speed. Two don't.</p>
           <div class="pcard__sku">SKU KRDSS14S-KRYPT</div>
           <div class="pcard__price num">$699.99</div>
@@ -380,7 +383,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-exhaust.jpg" alt="MagnaFlow Black DPF Series filter-back exhaust system"></div>
         <div class="pcard__body">
           <div class="pcard__brand">MagnaFlow</div>
-          <div class="pcard__t">Black DPF Series</div>
+          <h3 class="pcard__t">Black DPF Series</h3>
           <p class="pcard__p">A 5in stainless DPF back system in a black finish. It bolts on behind the factory DPF, so all the emissions equipment stays put. It's not a power part on a truck this new. What it changes is the exit volume of the exhaust gas.</p>
           <div class="pcard__sku">SKU MAG-17071</div>
           <div class="pcard__price num">$593.00</div>
@@ -395,7 +398,7 @@
         <div class="pcard__img pcard__img--product"><img src="images/part-tonneau.jpg" alt="Agri-Cover Lomax tonneau cover"></div>
         <div class="pcard__body">
           <div class="pcard__brand">Agri-Cover</div>
-          <div class="pcard__t">Lomax Tonneau Cover</div>
+          <h3 class="pcard__t">Lomax Tonneau Cover</h3>
           <p class="pcard__p">A hard folding cover for the bed, and the one part that's honestly both: it keeps cargo dry and it cleans up the back of the truck. When you're carrying gooseneck hardware, that's the difference between gear sitting in the weather and gear staying out of it.</p>
           <div class="pcard__price pcard__price--top num">$1,115.20<em>from</em></div>
           <div class="pcard__acts">
@@ -410,7 +413,7 @@
     </div>
 
     <div class="pager rv" id="pager" hidden>
-      <div class="pager__info">Page <b id="pgNow">1</b> of <b id="pgTotal">1</b> <span id="pgCount"></span></div>
+      <div class="pager__info" aria-live="polite">Page <b id="pgNow">1</b> of <b id="pgTotal">1</b> <span id="pgCount"></span></div>
       <div class="pager__dots" id="pgDots"></div>
     </div>
 
@@ -556,28 +559,28 @@
     </div>
     <div class="faq rv">
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">Can you build a show truck that can still tow?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>That's the whole question this build exists to answer. The rule was simple: every part gets called a show mod, a work mod, or both, and we track the running average instead of guessing at the end. Land in the middle and you've got a truck that turns heads at a show and still hooks up to a trailer on Monday. This one landed dead center, and the real proof is that the truck spent its whole summer doing both jobs.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span class="q__t">Can you build a show truck that can still tow?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a1" role="region" aria-labelledby="faq-q1"><p>That's the whole question this build exists to answer. The rule was simple: every part gets called a show mod, a work mod, or both, and we track the running average instead of guessing at the end. Land in the middle and you've got a truck that turns heads at a show and still hooks up to a trailer on Monday. This one landed dead center, and the real proof is that the truck spent its whole summer doing both jobs.</p></div>
       </div>
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">How wide can you go before it hurts towing?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>On this truck, 14in wide is the line. It's the widest we could go without losing towing ability, and honestly, it's almost too wide.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span class="q__t">How wide can you go before it hurts towing?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>On this truck, 14in wide is the line. It's the widest we could go without losing towing ability, and honestly, it's almost too wide.</p></div>
       </div>
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">What makes something a work mod instead of a show mod?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>A work mod changes what the truck can do: runs cooler, stops better, steers straighter under load, keeps the bed dry. A show mod changes how it looks and nothing else. Plenty of parts are both, which is why the meter is a scale and not a switch. Watch out for the parts that look great and quietly cost you capability.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span class="q__t">What makes something a work mod instead of a show mod?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a3" role="region" aria-labelledby="faq-q3"><p>A work mod changes what the truck can do: runs cooler, stops better, steers straighter under load, keeps the bed dry. A show mod changes how it looks and nothing else. Plenty of parts are both, which is why the meter is a scale and not a switch. Watch out for the parts that look great and quietly cost you capability.</p></div>
       </div>
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">Which parts should you avoid on a truck that still has to work?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>Three. The wheels are the big one: 26x14 is as wide as this truck goes without giving up towing, so if yours works every week, go with a narrower set. Drilled rotors are the wrong call if you tow at the top of the rating, since drilling adds stress risers and heat cycling is what kills rotors behind a gooseneck. And the glow kit is the easy skip. It costs you nothing in capability. Everything else here either helps the truck work or doesn't sacrifice anything for performance.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span class="q__t">Which parts should you avoid on a truck that still has to work?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a4" role="region" aria-labelledby="faq-q4"><p>Three. The wheels are the big one: 26x14 is as wide as this truck goes without giving up towing, so if yours works every week, go with a narrower set. Drilled rotors are the wrong call if you tow at the top of the rating, since drilling adds stress risers and heat cycling is what kills rotors behind a gooseneck. And the glow kit is the easy skip. It costs you nothing in capability. Everything else here either helps the truck work or doesn't sacrifice anything for performance.</p></div>
       </div>
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">Where did this build actually land on the meter?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>Dead center. The glow kit pulled it furthest toward show, the Kryptonite steering group pulled it furthest toward work, and the two nearly cancel out.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span class="q__t">Where did this build actually land on the meter?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a5" role="region" aria-labelledby="faq-q5"><p>Dead center. The glow kit pulled it furthest toward show, the Kryptonite steering group pulled it furthest toward work, and the two nearly cancel out.</p></div>
       </div>
       <div class="q">
-        <button class="q__btn" aria-expanded="false"><span class="q__t">Does this parts list only work on a Ram 3500?</span><span class="q__ic" aria-hidden="true"></span></button>
-        <div class="q__body"><p>The lift, track bar, steering group, diff cover, and exhaust are all cut for this chassis and axle, so a Ford or GM owner needs the equivalent, not the same box. What transfers is the order of operations: pick the lift that fits your tire instead of the tallest one on the shelf, spend on steering and cooling before lighting, and leave the emissions equipment alone. Run your year, make, and model through the fitment tool and it'll only show you what actually bolts on.</p></div>
+        <button class="q__btn" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span class="q__t">Does this parts list only work on a Ram 3500?</span><span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__body" id="faq-a6" role="region" aria-labelledby="faq-q6"><p>The lift, track bar, steering group, diff cover, and exhaust are all cut for this chassis and axle, so a Ford or GM owner needs the equivalent, not the same box. What transfers is the order of operations: pick the lift that fits your tire instead of the tallest one on the shelf, spend on steering and cooling before lighting, and leave the emissions equipment alone. Run your year, make, and model through the fitment tool and it'll only show you what actually bolts on.</p></div>
       </div>
     </div>
   </div>
@@ -645,6 +648,8 @@
     <img src="images/cta-ram.jpg" alt="The finished 2026 Ram 3500 in profile on 26x14 American Force wheels" loading="lazy">
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER LINKS: every href below is a best-guess path on customwheeloffset.com. The live site could not be
      fetched to confirm them (AWS WAF blocks automated requests), so check each one before launch. -->

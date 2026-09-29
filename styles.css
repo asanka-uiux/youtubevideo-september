@@ -425,7 +425,7 @@ h1.display .l2{display:block;color:var(--red-hot)}
   h1.display{font-size:clamp(2.4rem,5.6vw,5rem)}
   h2.display{font-size:clamp(2.1rem,4.4vw,3.6rem)}
   .hero__in{background:none}
-  .hero__sub{font-size:.97rem;line-height:1.65;color:#C9C9D1}
+  .hero__sub{font-size:.97rem;line-height:1.65;color:var(--text)}
   .picks{flex-wrap:wrap;margin:20px 0 0;padding:0;overflow:visible}
   .ptab{padding:11px 18px}
   .wrap--wide{padding:0 34px}
@@ -475,6 +475,9 @@ h1.display .l2{display:block;color:var(--red-hot)}
   .carousel__arrow{height:96px;width:auto}
   .carousel__arrow[hidden]{visibility:hidden;display:flex}
   .carousel__arrow--prev,.carousel__arrow--next{order:0;justify-self:auto;margin-top:0}
+  /* page 1: no left arrow column, cards flush left (the column and arrow come back from page 2) */
+  .carousel.is-first{grid-template-columns:1fr 64px}
+  .carousel.is-first .carousel__arrow--prev{display:none}
   .pgrid{order:0}
   .stats__in{grid-template-columns:repeat(4,1fr)}
   .st{padding:34px 0 34px 30px}
@@ -501,6 +504,7 @@ h1.display .l2{display:block;color:var(--red-hot)}
   .nav__cta{margin-left:0}
   .nav__burger{display:none}
   .hero__bg img{object-position:50% 52%}
+  .finbanner__lenders span{padding-top:16px}
   /* desktop hero fills the screen: starts under the fixed nav, padded so the copy centres in the visible area */
   .hero{min-height:100vh;margin-top:0;padding-top:var(--navh);box-sizing:border-box}
   .foot{padding:64px 0 32px}
@@ -545,3 +549,24 @@ h1.display .l2{display:block;color:var(--red-hot)}
 .foot__legal{flex-direction:column;align-items:center;justify-content:center;gap:14px}
 .foot small{margin:0 auto}
 .foot__links{justify-content:center}
+
+/* ============================================================
+   ACCESSIBILITY PASS (round 28)
+   ============================================================ */
+/* skip link: off screen until focused */
+.skip{position:absolute;left:16px;top:-80px;z-index:300;background:var(--white);color:var(--ink);font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border-radius:4px;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:none} /* programmatic target of the skip link only; it is not an interactive control */
+/* one clear keyboard focus ring on every control, visible on the dark panels, the red banner and the red buttons */
+:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+/* FAQ: collapsed answers are hidden from screen readers and Tab too, not only squeezed to 0px */
+.q__body{visibility:hidden;transition:max-height .38s cubic-bezier(.2,.7,.3,1),visibility 0s linear .38s}
+.q__btn[aria-expanded="true"] + .q__body{visibility:visible;transition:max-height .38s cubic-bezier(.2,.7,.3,1),visibility 0s}
+/* pager dots: 24px tap targets (WCAG 2.5.8) with the same 9px dot drawn inside; inactive dots raised to 3:1 (1.4.11) */
+.pager__dots{gap:0}
+.pager__dots button{width:24px;height:24px;border-radius:50%;background:none;display:flex;align-items:center;justify-content:center;transform:none}
+.pager__dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:#6A6A72;transition:background .2s,transform .2s}
+.pager__dots button[aria-current="true"]{background:none;transform:none}
+.pager__dots button[aria-current="true"]::before{background:var(--red-hot);transform:scale(1.3)}
+.pager__dots button:hover{background:none}
+.pager__dots button:hover::before{background:var(--muted)}
